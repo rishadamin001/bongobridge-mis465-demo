@@ -1,7 +1,7 @@
 'use strict';
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const BB = require('../dist/engine.js');
+const BB = require('../src/engine.js');
 const seed = require('../database/seed.json');
 const key = 'bongobridge-demo-v1';
 
@@ -18,20 +18,20 @@ function setup() {
   return BB.load(seed);
 }
 
-test('quote adds all invented costs and rounds weight upward in half-kilograms', () => {
+test('quote separates the staged import payment and measures physical weight', () => {
   const quote = BB.estimate({ origin: 'China', price: 42, weight: 0.35 });
-  assert.deepEqual(quote, { items: 5040, shipping: 375, service: 252, duties: 756, delivery: 80, total: 6503, billableWeight: 0.5, rate: 750, days: '8–12' });
-  assert.equal(BB.estimate({ origin: 'China', price: 58, weight: 0.8, quantity: 2 }).billableWeight, 2);
+  assert.equal(quote.items,5040); assert.equal(quote.shipping,252); assert.equal(quote.total,5372); assert.equal(quote.advance,3528); assert.equal(quote.balance,1844); assert.equal(quote.billableWeight,0.35);
+  assert.equal(BB.estimate({ origin: 'China', price: 58, weight: 0.8, quantity: 2 }).billableWeight, 1.6);
 });
 
 test('mode, city, quantity, zero price and numeric form inputs affect quotes correctly', () => {
   const quote = BB.estimate({ origin: 'India', price: '0', weight: '0.01', quantity: '2', city: 'Sylhet', mode: 'sea' });
-  assert.equal(quote.shipping, 120);
+  assert.equal(quote.shipping, 5);
   assert.equal(quote.delivery, 150);
-  assert.equal(quote.total, 270);
+  assert.equal(quote.total, 155);
   assert.equal(quote.days, '12–18');
   assert.equal(BB.estimate({ origin: 'USA', price: 1, weight: 0.5, mode: 'sea' }).days, '25–40');
-  assert.equal(BB.estimate({ origin: 'UK', price: 1, weight: 0.51 }).shipping, 1050);
+  assert.equal(BB.estimate({ origin: 'UK', price: 1, weight: 0.51 }).shipping, 536);
 });
 
 test('quote rejects blank, negative, nonfinite, extreme and unsupported values', () => {
@@ -42,7 +42,7 @@ test('quote rejects blank, negative, nonfinite, extreme and unsupported values',
     { origin: '__proto__' }, { origin: 'Japan' }, { city: 'Atlantis' }, { mode: 'express' }
   ];
   invalid.forEach(change => assert.throws(() => BB.estimate({ ...base, ...change }), RangeError));
-  assert.throws(() => BB.estimate(null), TypeError);
+  assert.throws(() => BB.estimate(null), RangeError);
 });
 
 test('fresh state clones the seed and save/load round trips permitted fields', () => {

@@ -30,26 +30,8 @@
   }
 
   function estimate(input) {
-    if (!input || typeof input !== 'object') throw new TypeError('A demo estimate is required.');
-    const origin = input.origin;
-    const city = input.city === undefined ? 'Dhaka' : input.city;
-    const mode = input.mode === undefined ? 'air' : input.mode;
-    if (!Object.prototype.hasOwnProperty.call(lanes, origin)) throw new RangeError('Choose a source market.');
-    if (!cities.includes(city)) throw new RangeError('Choose a demo destination city.');
-    if (!['air', 'sea'].includes(mode)) throw new RangeError('Choose air or sea freight.');
-    const price = numeric(input.price, 'Item price', 0, 100000, false);
-    const weight = numeric(input.weight, 'Item weight', Number.MIN_VALUE, 1000, false);
-    const quantity = numeric(input.quantity === undefined ? 1 : input.quantity, 'Quantity', 1, 20, true);
-    const items = Math.round(price * quantity * 120);
-    const billableWeight = Math.max(0.5, Math.ceil(weight * quantity * 2) / 2);
-    const rate = lanes[origin][mode];
-    const shipping = Math.round(billableWeight * rate);
-    const service = Math.round(items * 0.05);
-    const duties = Math.round(items * 0.15);
-    const delivery = city === 'Dhaka' ? 80 : 150;
-    const total = items + shipping + service + duties + delivery;
-    const days = mode === 'air' ? lanes[origin].days : origin === 'India' ? '12–18' : '25–40';
-    return { items, shipping, service, duties, delivery, total, billableWeight, rate, days };
+    const pricing = root.BongoPricing || (typeof require === 'function' ? require('./modules/pricing.js') : null);
+    return pricing.importQuote(input);
   }
 
   function knownProduct(productId) {
@@ -73,7 +55,11 @@
       id: value.id, productId: product ? product.id : 'PROXY',
       productName: product ? product.name : 'Sample proxy request', customer,
       city: value.city, statusIndex: value.statusIndex, quantity: value.quantity,
-      createdAt: value.createdAt, amount: value.amount, origin, mode
+      createdAt: value.createdAt, amount: value.amount, origin, mode,
+      advance: Number.isFinite(value.advance) ? value.advance : null,
+      balance: Number.isFinite(value.balance) ? value.balance : null,
+      paymentRef: typeof value.paymentRef === 'string' && /^BB-PAY-DEMO-[A-Z0-9-]+$/.test(value.paymentRef) ? value.paymentRef : null,
+      paymentMethod: ['card','bkash','nagad','rocket','bank'].includes(value.paymentMethod) ? value.paymentMethod : null
     };
   }
 
@@ -141,7 +127,9 @@
       customer: 'Demo Shopper', city: input.city === undefined ? 'Dhaka' : input.city,
       statusIndex: 0, quantity: Number(input.quantity === undefined ? 1 : input.quantity),
       createdAt: new Date().toISOString(), amount: quote.total,
-      origin: input.origin, mode: input.mode === undefined ? 'air' : input.mode
+      origin: input.origin, mode: input.mode === undefined ? 'air' : input.mode,
+      advance: quote.advance, balance: quote.balance,
+      paymentRef: input.paymentRef || null, paymentMethod: input.paymentMethod || null
     };
   }
 

@@ -1,0 +1,37 @@
+BongoBridge illustrative photography — MIS 465 educational demo
+
+These are real reference photos illustrating fictional catalog items and generated
+maker scenarios. They are not photos of stock offered for sale. Brand labels visible
+in a photograph do not identify the fictional seller or imply an endorsement.
+Export-maker photos illustrate product types; they are not verified images of
+Bangladeshi workshops or actual artisan goods. No user image is uploaded anywhere.
+
+Runtime image files are bundled with the site. They do not contact image providers.
+Files were resized and compressed for this website; CSS may crop the display.
+
+Unsplash license: https://unsplash.com/license
+Free commercial/noncommercial use; source identifiers are credited voluntarily.
+
+p001.webp (headphones): https://images.unsplash.com/photo-1505740420928-5e560c06d30e
+p002.jpg (keyboard): https://images.unsplash.com/photo-1587829741301-dc798b83add3
+p003.jpg (camera): https://images.unsplash.com/photo-1516035069371-29a1b244cc32
+p005.jpg (backpack): https://images.unsplash.com/photo-1553062407-98eeb64c6a62
+p006.jpg (sneaker): https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77
+p007.jpg (shirt): https://images.unsplash.com/photo-1596755094514-f87e34085b2c
+p008.jpg (cap): https://images.unsplash.com/photo-1588850561407-ed78c282e89b
+p009.jpg (hair care): https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b
+p010.jpg (moisturizer): https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8
+p011.webp (lamp): https://images.unsplash.com/photo-1507473885765-e6ed057f782c
+p012.webp (mug): https://images.unsplash.com/photo-1514228742587-6b1558fcca3d
+maker-tea.webp: https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9
+
+p004.jpg:
+Canvas two-tone tote Navy and Natural7, by Tom Beatty, CC BY 2.0.
+Original Flickr: https://www.flickr.com/photos/wm_j_mills/9038437258/
+Commons source/license:
+https://commons.wikimedia.org/wiki/File:Canvas_two-tone_tote_Navy_and_Natural7_(9038437258).jpg
+License: https://creativecommons.org/licenses/by/2.0/
+Adaptations: resized and JPEG compressed; fitted/cropped in the page.
+
+Headphone, tote, lamp, mug and tea originals were reused from the user's
+rishadamin001/payment-gateway project and retain their upstream image credits.

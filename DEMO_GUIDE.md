@@ -1,108 +1,96 @@
-# BongoBridge presentation guide
+# MIS 465 classroom presentation — BongoBridge v2
 
-**MIS 465 · educational simulation · dummy data only**
+The live experience has two areas: **Shop global** (imports into Bangladesh) and **For makers** (a Bangladesh-maker export operations simulation). Every record and transaction is fictional. No real money, identity verification, carrier booking, or customs filing is involved.
 
-This guide supports a five-to-seven-minute classroom demonstration of a Bangladesh-focused shopping proxy. It explains both the visitor experience and the system concepts behind it. The site is an original educational project and is not associated with Baozun or any real logistics business.
+## 1. Explain the project
 
-## Suggested walkthrough
+Open the home page. Point out the education disclaimer, the original evergreen/cream/lime design, animated route illustration, real reference photos, and maker-workspace entry. Explain that the architecture follows the supplied blueprint through modular domains while staying suitable for a free classroom deployment.
 
-1. **Introduce the problem.** A shopper wants to understand how goods from another country might reach Bangladesh through an intermediary. Explain the distinction between a product supplier, a shopping proxy, an origin warehouse, international transport, and local delivery.
-2. **Show the landing page.** Point out the service proposition, navigation, clear course-demo disclaimer, and responsive layout.
-3. **Explore generated products.** Open "Shop global", search the catalog, filter by category/origin, and change the sort. Add an imaginary product to the bag. Explain that product names, brands, inventory, and prices are invented.
-4. **Estimate a shipment.** Change the country, weight, and transport mode in the shipping estimator. Show how the displayed amount changes. Explain that the rates are fixed mock constants, not live foreign-exchange, freight, or customs data.
-5. **Create a simulated request.** Complete the bag's simulated checkout, then show the "Buy for me" form with a preset sample product and destination. Explain that no purchase or payment is made. The resulting request exists only in this browser; no real product URL or personal details are needed.
-6. **Track an order.** Use a seeded demonstration order ID. Explain how its status represents one stage in a simple fulfillment process. An invalid ID should produce a clear empty/error state, not an invented delivery record.
-7. **Open the dashboard demo admin view.** Show generated orders, advance a status, and export the dummy records as JSON. Explain how an admin change updates the corresponding customer-facing timeline in the same browser. This is a classroom UI with no security boundary or real administrator identity.
-8. **Discuss persistence and reset.** Reload to show browser-local state. Then reset the demo or clear this site's browser storage to restore a clean presentation. Local changes on one device do not update another device.
+## 2. Demonstrate shopping and visible cart feedback
 
-## Seeded dataset
+Open Shop global. Search for keyboard, switch categories/origins, and sort by price. Clear filters. Open Fold Mini headphones to inspect the photo and price breakdown.
 
-The standalone `database/seed.json` teaching file contains:
+Add it to the bag. Show the button confirmation, badge animation, moving thumbnail (unless reduced motion is enabled), and visible product-added panel. It contains the image, name, quantity, item value, and a direct bag/checkout button. Rapid additions update the same confirmation rather than losing the bag state.
 
-| Entity | Count | Example |
-| --- | --- | --- |
-| Products | 12 | `P001` — Fold Mini headphones by the fictional Auraloop brand. |
-| Orders | 6 | `BB-DEMO-1041` — Demo shopper A, Dhaka. |
-| Origin lanes | 4 | China, USA, UK, and India to Bangladesh. |
+Prices are generated BDT fixtures. The example headphone item is 1,490 taka. Its 70% sample item advance is 1,043 taka. The per-kilogram combined freight/customs figure, billable weight, and local delivery explain the later estimate. These are not SkyBuy's actual prices or current import charges.
 
-The browser catalog is generated from mock data. The SQL and JSON files are also useful as independent relational-model examples; they do not establish a remote database connection.
+## 3. Explain the two pricing models
 
-## Illustrative order state model
+The import model is:
 
-The standalone dataset uses a six-step sequence:
+    item cost + combined shipping/customs fixture + local delivery
+    mock advance = 70% of item cost
+    later estimate = full illustrative total - advance
 
-| Index | Status | Meaning in the classroom model |
-| --- | --- | --- |
-| 0 | Request received | The proxy has received the simulated shopper's request. |
-| 1 | Purchased | The imaginary supplier purchase has been marked complete. |
-| 2 | At origin hub | The sample parcel has reached the fictional consolidation hub. |
-| 3 | In transit | The sample parcel is moving internationally. |
-| 4 | Customs simulation | The sample parcel has entered an imaginary destination review step. |
-| 5 | Delivered | The sample parcel is marked delivered. |
+No separate duty percentage is added on top of the combined freight/customs fixture.
 
-These are state labels, not live events. In a real system, authenticated staff or signed carrier events would drive transitions and preserve an audit history. The demo intentionally simplifies this to make the concept visible during class.
+Both import and export calculations can compare physical and dimensional weight:
 
-## Cost-model discussion
+    dimensional kg = length cm × width cm × height cm / 5000
+    billable kg = the greater of actual kg and dimensional kg
 
-A simple teaching model can represent landed cost as:
+Dimensions are for one sample unit, and the model scales them across quantity. It does not optimize real packing.
 
-```text
-mock product value in BDT (USD price × quantity × 120)
-+ mock international freight (billable kg × lane/mode rate)
-+ mock proxy-service fee (5% of product value)
-+ mock duties allowance (15% of product value)
-+ mock local delivery (80 BDT to Dhaka; 150 BDT to other demo cities)
-= illustrative total
-```
+The export DDP illustration separately lists supplier value, platform margin, first mile, international freight, insurance, duty/VAT fixtures, broker fee, and last mile. FX fixtures use 120 BDT/USD, 132 BDT/EUR, and 156 BDT/GBP. Export monetary journals use integer minor units; FX and taxes are invented scenario values.
 
-The teaching dataset uses an invented fixed conversion of **120 BDT per USD**. Weights are rounded **up** to the next half-kilogram with a **0.5 kg** minimum. Percentage fees are rounded separately to whole taka.
+## 4. Run a successful payment simulation
 
-| Mock lane | Air BDT/kg | Sea BDT/kg | Air days | Sea days |
-| --- | --- | --- | --- | --- |
-| China → Bangladesh | 750 | 280 | 8–12 | 25–40 |
-| USA → Bangladesh | 1150 | 450 | 12–18 | 25–40 |
-| UK → Bangladesh | 1050 | 400 | 10–15 | 25–40 |
-| India → Bangladesh | 600 | 240 | 5–8 | 12–18 |
+Open the bag and continue to checkout. Review the sample advance and later balance, select a sample city/shipping method, then continue to demo payment.
 
-For one P001 headphone item to Dhaka by air, the model produces `5040 + 375 + 252 + 756 + 80 = 6503 BDT`. These constants are not market quotes, customs rates, or carrier commitments. No amount displayed is charged to anyone.
+Select bKash demo, Nagad demo, Rocket demo, Demo card, or Demo bank. The five familiar methods were adapted from your payment-gateway project's UI. No provider or temporary tunnel is contacted.
 
-## Relational database discussion
+Continue to verification and enter only the displayed **000000**. Show the dedicated processing screen, method color, and final receipt. Click View my demo orders, then inspect the mock parcel ID. No real money was charged.
 
-The optional SQL model demonstrates:
+One successful active attempt creates its mock orders once. Payment success is not a backend-verified financial fact in this browser simulation.
 
-- **Primary keys:** a product or order has a unique identifier.
-- **Foreign keys:** each seeded order points to a product.
-- **Validation:** quantities and weights must be positive; status indexes are restricted.
-- **Normalization:** shipping-lane data is stored once rather than repeated in each product.
-- **Aggregation:** orders can be grouped by city or products by category.
-- **Access control:** a private schema and row-level security prevent accidental public API access.
+## 5. Show unsuccessful results
 
-Example classroom questions:
+Add another item and open a fresh checkout. Use Cancel payment to show the cancellation result. Return to the bag; items are retained.
 
-1. Which categories contain the most mock products?
-2. Which cities have the largest fictional order value?
-3. What additional order-items table would be needed for a multi-product order?
-4. How would an audit log record a status change?
-5. Why is a browser-visible admin page insufficient for a real business?
+For a decline: reach the verification step, enter 000000, expand Classroom testing controls, and choose Simulate declined payment. The declined result creates no shopping order and retains the bag.
 
-`schema.sql` is optional and is not executed by the website. Study it as a file without deploying anything. If an instructor chooses to run it, use a separate disposable database, inspect its free-plan status first, and never add cloud secrets to browser code.
+For expiry: expand the same controls and choose Simulate timeout. An expired result is a separate screen. Again, the bag remains and nothing is charged.
 
-## Explain the zero-billing design
+## 6. Track a shopping parcel
 
-The project needs only static hosting and the visitor's browser. It does not make paid API calls, run a persistent application server, provision a hosted database, collect payment details, register a domain, or require a billing method. The intended online host is a public GitHub Pages repository on GitHub Free, within its service limits.
+Open the customer dashboard or Track a parcel. BB-DEMO-1044 is a seeded transit example. Show the timeline and open demo admin to advance a sample order. The milestones are local simulation events, not carrier tracking.
 
-The no-cost design comes from keeping the entire exercise a static simulation. A production shopping-proxy service would require a different architecture and its own hosting, security, legal, carrier, payments, and operating-cost decisions.
+## 7. Start the maker export journey
 
-## Limitations to state honestly
+Open For makers → Maker. Choose Riverbank jute shopper, a quantity, UK/USA/Germany, currency, and full/semi-managed model. Show the generated studio, Bengali/English label, physical attributes and complete DDP teaching quote. Submit to review.
 
-- Orders are device-local mock records and are not shared across browsers.
-- There is no real login, administrator authorization, stock management, payment, courier integration, or procurement.
-- No real product URL is fetched and no merchant order is submitted.
-- All delivery statuses, rates, dates, and calculations are simulated.
-- Fictional product labels do not establish an affiliation with any actual business.
-- Browser storage can be cleared, blocked, or lost. This is not a durable business database.
-- A public repository exposes all source and dummy data; secrets and real customer details must never be added.
+The profiles contain no real NID, license, bank account, wallet or customer address. The role tabs demonstrate organizational responsibilities, not secure login.
 
-## Reset before class
+## 8. Demonstrate human review
 
-Use the dashboard's demo reset control. Alternatively, open your browser's site settings for the demo URL and clear its local site data, then reload. This deletes only the copy stored in that browser. A fresh browser profile also starts with the seeded demonstration state.
+Open Broker. EX-DEMO-2002 is the low-confidence ceramic-mug scenario at 91%. Attempting approval without acknowledging human review is blocked. Check the classroom review acknowledgement and approve.
+
+Preview the draft invoice/packing list. It is watermarked CLASSROOM SAMPLE / NOT VALID FOR TRADE. Downloading the HTML draft produces a teaching artifact, not a customs filing or carrier label. Record a mock document reference to satisfy the later workflow gate.
+
+## 9. Verify the hub and consolidate
+
+Open Warehouse. For a broker-approved consignment, enter measured weight and all three dimensions, then Verify hub intake. Show how the billable weight and export quote change.
+
+Assign it to a destination master carton. A departure attempt is blocked if broker review, intake, consolidation, or the mock document is missing. With all four complete, simulate departure. Delivery is a later separate milestone.
+
+## 10. Show a balanced supplier payout
+
+Open Finance. Only eligible departed consignments can record a payout. Choose a demo bKash/Nagad/bank destination and record it. Show the processing/result screen and journal reference.
+
+The debit to supplier payable equals the credit to wallet clearing. A repeated domain payout command is idempotent. No supplier transfer actually happens. The journal is a browser fixture and is not an immutable accounting database.
+
+## 11. Run the automation demonstration
+
+Open Automation. Run the generated listing pipeline to show enrichment → HS suggestion → compliance → documentation handoffs.
+
+Choose the low-confidence mug to show human fallback. Choose Restricted material test fixture to show a blocked submission/document path. Explain that this is deterministic scenario logic, not live AI, sanctions screening, or legally correct HS classification. There are no model API calls or charges.
+
+## 12. Explain the architecture and next phases
+
+Use architecture/IMPLEMENTATION_PLAN.md to discuss the domain boundaries, requirement coverage, planned API adapters, PostgreSQL teaching model, command/event architecture, and staged roadmap. The blueprint's real-money gateways, secure authentication, KYC, legal compliance, carrier integrations and scale/SLA claims are not implemented as live infrastructure.
+
+A key design lesson: policy must be versioned and verified. The blueprint's blanket US $800 duty-free assumption is outdated; the demo grants no automated exemption. All HS/tax/export-document fixtures require human review before any future operational use.
+
+## Repeat the presentation
+
+Use Reset demo data in the site footer to restore the shopping fixtures and clear the current payment history. Use Reset export scenario within For makers to restore generated makers, consignments, journals, and events. These resets affect only this project's browser state. Export JSON before resetting if you want to keep a sample classroom session.
