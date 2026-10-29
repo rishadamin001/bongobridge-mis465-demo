@@ -38,7 +38,7 @@ test('quote rejects blank, negative, nonfinite, extreme and unsupported values',
   const base = { origin: 'China', price: 10, weight: 1 };
   const invalid = [
     { price: '' }, { price: ' ' }, { price: null }, { price: NaN }, { price: Infinity }, { price: -1 }, { price: 100001 },
-    { weight: 0 }, { weight: -1 }, { weight: 1001 }, { weight: 'abc' }, { quantity: 0 }, { quantity: 21 }, { quantity: 1.5 },
+    { weight: 0 }, { weight: -1 }, { weight: 1001 }, { weight: 'abc' }, { quantity: 0 }, { quantity: 501 }, { quantity: 1.5 },
     { origin: '__proto__' }, { origin: 'Japan' }, { city: 'Atlantis' }, { mode: 'express' }
   ];
   invalid.forEach(change => assert.throws(() => BB.estimate({ ...base, ...change }), RangeError));
@@ -55,7 +55,7 @@ test('fresh state clones the seed and save/load round trips permitted fields', (
   assert.equal(seed.orders[0].statusIndex, 0);
   const restored = BB.load(seed);
   assert.equal(restored.orders[0].statusIndex, 3);
-  assert.deepEqual(restored.cart, [{ productId: 'P001', quantity: 2 }]);
+  assert.deepEqual(restored.cart, [{ productId: 'P001', variantId: seed.products[0].variants[0].id, sizeId: seed.products[0].sizes[0].id, quantity: 2 }]);
   assert.equal(restored.secret, undefined);
 });
 

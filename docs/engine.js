@@ -34,6 +34,10 @@
     return pricing.importQuote(input);
   }
 
+  function commerce() {
+    return root.BongoCommerce || (typeof require === 'function' ? require('./modules/commerce.js') : null);
+  }
+
   function knownProduct(productId) {
     return typeof productId === 'string' ? products.get(productId) : undefined;
   }
@@ -44,13 +48,27 @@
     if (!product && value.productId !== 'PROXY') return null;
     if (typeof value.id !== 'string' || !/^BB-DEMO-\d{4,9}$/.test(value.id)) return null;
     if (!cities.includes(value.city) || !Number.isInteger(value.statusIndex) || value.statusIndex < 0 || value.statusIndex >= statuses.length) return null;
-    if (!Number.isInteger(value.quantity) || value.quantity < 1 || value.quantity > 20) return null;
-    if (!Number.isFinite(value.amount) || value.amount < 0 || value.amount > 1000000000) return null;
+    if (!Number.isInteger(value.quantity) || value.quantity < 1 || value.quantity > 500) return null;
+    if (!Number.isFinite(value.amount) || value.amount < 0 || value.amount > 1000000000000) return null;
     if (typeof value.createdAt !== 'string' || !/^\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}\.\d{3}Z)?$/.test(value.createdAt) || !Number.isFinite(Date.parse(value.createdAt))) return null;
     const origin = Object.prototype.hasOwnProperty.call(lanes, value.origin) ? value.origin : product ? product.origin : 'China';
     const mode = value.mode === 'sea' ? 'sea' : 'air';
     // Restore display labels from trusted presets, never from browser-edited text.
     const customer = /^Demo shopper [A-F]$/.test(value.customer) ? value.customer : 'Demo Shopper';
+    let selection;
+    try {
+      selection = product ? commerce().resolve(product, value) : { variantId: 'default', sizeId: 'default', variant: { label: 'Original' }, size: { label: 'One size' } };
+    } catch (_) { return null; }
+    for (const field of ['advance', 'balance']) if (value[field] !== undefined && value[field] !== null && (!Number.isFinite(value[field]) || value[field] < 0 || value[field] > 1000000000000)) return null;
+    for (const field of ['baseUnitBDT', 'itemUnitBDT']) if (value[field] !== undefined && value[field] !== null && (!Number.isFinite(value[field]) || value[field] < 0 || value[field] > 12000000)) return null;
+    const groupQuantity = value.groupQuantity === undefined ? value.quantity : value.groupQuantity;
+    if (!Number.isInteger(groupQuantity) || groupQuantity < value.quantity || groupQuantity > 500) return null;
+    const bulkDiscount = value.bulkDiscount === undefined ? 0 : value.bulkDiscount;
+    if (!Number.isFinite(bulkDiscount) || bulkDiscount < 0 || bulkDiscount > 100) return null;
+    const tierMin = value.tierMin === undefined ? 1 : value.tierMin;
+    if (!Number.isInteger(tierMin) || tierMin < 1 || tierMin > Math.max(1, groupQuantity)) return null;
+    const localDeliveryBDT = value.localDeliveryBDT === undefined ? null : value.localDeliveryBDT;
+    if (localDeliveryBDT !== null && localDeliveryBDT !== 0 && localDeliveryBDT !== (value.city === 'Dhaka' ? 80 : 150)) return null;
     return {
       id: value.id, productId: product ? product.id : 'PROXY',
       productName: product ? product.name : 'Sample proxy request', customer,
@@ -59,21 +77,23 @@
       advance: Number.isFinite(value.advance) ? value.advance : null,
       balance: Number.isFinite(value.balance) ? value.balance : null,
       paymentRef: typeof value.paymentRef === 'string' && /^BB-PAY-DEMO-[A-Z0-9-]+$/.test(value.paymentRef) ? value.paymentRef : null,
-      paymentMethod: ['card','bkash','nagad','rocket','bank'].includes(value.paymentMethod) ? value.paymentMethod : null
+      paymentMethod: ['card','bkash','nagad','rocket','bank'].includes(value.paymentMethod) ? value.paymentMethod : null,
+      variantId: selection.variantId, sizeId: selection.sizeId,
+      variantLabel: selection.variant.label, sizeLabel: selection.size.label,
+      groupQuantity, bulkDiscount, tierMin, localDeliveryBDT,
+      baseUnitBDT: Number.isFinite(value.baseUnitBDT) ? value.baseUnitBDT : null,
+      itemUnitBDT: Number.isFinite(value.itemUnitBDT) ? value.itemUnitBDT : null
     };
   }
 
   function cleanState(value) {
     if (!value || typeof value !== 'object' || !Array.isArray(value.orders) || !Array.isArray(value.cart)) return null;
-    if (value.orders.length > 1000 || value.cart.length > 100) return null;
+    if (value.orders.length > 1000 || value.cart.length > 2000) return null;
     const orders = value.orders.map(cleanOrder);
     if (orders.some(order => !order)) return null;
     if (new Set(orders.map(order => order.id)).size !== orders.length) return null;
-    const cart = [];
-    for (const entry of value.cart) {
-      if (!entry || !knownProduct(entry.productId) || !Number.isInteger(entry.quantity) || entry.quantity < 1 || entry.quantity > 20 || cart.some(item => item.productId === entry.productId)) return null;
-      cart.push({ productId: entry.productId, quantity: entry.quantity });
-    }
+    let cart;
+    try { cart = commerce().addLines([...products.values()], [], value.cart); } catch (_) { return null; }
     return { orders, cart };
   }
 
@@ -111,8 +131,26 @@
 
   function makeOrder(input) {
     if (!input || typeof input !== 'object') throw new TypeError('A demo order is required.');
-    const quote = estimate(input);
     const product = input.product && knownProduct(input.product.id);
+    const quantity = numeric(input.quantity === undefined ? 1 : input.quantity, 'Quantity', 1, 500, true);
+    const selection = product ? commerce().resolve(product, input) : { variantId: 'default', sizeId: 'default', variant: { label: 'Original' }, size: { label: 'One size', weightMultiplier: 1 }, baseUnitBDT: null };
+    const groupQuantity = numeric(input.groupQuantity === undefined ? quantity : input.groupQuantity, 'Grouped quantity', quantity, 500, true);
+    const bulk = product ? commerce().tier(product, groupQuantity) : { min: 1, discount: 0 };
+    const hasSnapshot = product && (input.groupQuantity !== undefined || input.itemUnitBDT !== undefined || input.bulkDiscount !== undefined || input.baseUnitBDT !== undefined);
+    let itemUnitBDT = null;
+    if (hasSnapshot) {
+      itemUnitBDT = Math.round(selection.baseUnitBDT * (100 - bulk.discount) / 100);
+      if (input.itemUnitBDT !== undefined && numeric(input.itemUnitBDT, 'Unit price', 0, 12000000, true) !== itemUnitBDT) throw new RangeError('Refresh this sample bulk quote before checkout.');
+      if (input.bulkDiscount !== undefined && Number(input.bulkDiscount) !== bulk.discount) throw new RangeError('Refresh this sample bulk discount before checkout.');
+    }
+    const quote = estimate(hasSnapshot ? { ...input, priceBDT: itemUnitBDT, weight: Number(product.weight) * selection.size.weightMultiplier } : input);
+    if (input.localDeliveryBDT !== undefined) {
+      const delivery = numeric(input.localDeliveryBDT, 'Local delivery', 0, 150, true);
+      if (delivery !== 0 && delivery !== quote.delivery) throw new RangeError('Use the displayed sample local delivery amount.');
+      quote.total += delivery - quote.delivery;
+      quote.balance += delivery - quote.delivery;
+      quote.delivery = delivery;
+    }
     const orders = Array.isArray(input.orders) ? input.orders : [];
     let highest = 1046;
     orders.forEach(order => {
@@ -125,11 +163,16 @@
       productId: product ? product.id : 'PROXY',
       productName: product ? product.name : 'Sample proxy request',
       customer: 'Demo Shopper', city: input.city === undefined ? 'Dhaka' : input.city,
-      statusIndex: 0, quantity: Number(input.quantity === undefined ? 1 : input.quantity),
+      statusIndex: 0, quantity,
       createdAt: new Date().toISOString(), amount: quote.total,
       origin: input.origin, mode: input.mode === undefined ? 'air' : input.mode,
       advance: quote.advance, balance: quote.balance,
-      paymentRef: input.paymentRef || null, paymentMethod: input.paymentMethod || null
+      paymentRef: input.paymentRef || null, paymentMethod: input.paymentMethod || null,
+      variantId: selection.variantId, sizeId: selection.sizeId,
+      variantLabel: selection.variant.label, sizeLabel: selection.size.label,
+      baseUnitBDT: hasSnapshot ? selection.baseUnitBDT : null,
+      itemUnitBDT, groupQuantity, bulkDiscount: hasSnapshot ? bulk.discount : 0,
+      tierMin: hasSnapshot ? bulk.min : 1, localDeliveryBDT: quote.delivery
     };
   }
 

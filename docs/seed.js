@@ -10,7 +10,13 @@ window.BB_SEED = {
     "generatedAt": "2026-10-29",
     "personalData": "None. Customer labels are fictional classroom personas.",
     "pricingVersion": "CLASSROOM-2026-02",
-    "pricingNote": "Invented BDT item prices; 70% mock advance, combined freight/customs fixture, later balance; physical/volumetric maximum. No real charges."
+    "pricingNote": "Invented BDT item prices; 70% mock advance, combined freight/customs fixture, later balance; physical/volumetric maximum. No real charges.",
+    "catalogVersion": 3,
+    "productCount": 36,
+    "catalogNote": "36 generated product families with real illustrative photographs, mixed style/size selection, and demo bulk tiers. No real inventory, ratings or sales claims.",
+    "quantityLimitPerProduct": 500,
+    "availabilityNote": "stockPerSku is a classroom input limit, not a live stock promise.",
+    "bulkPricingNote": "10+ pieces 5%, 50+ pieces 10%, 100+ pieces 15% off the sample item amount; aggregate across styles/sizes of the same product only. Shipping is estimated separately."
   },
   "products": [
     {
@@ -21,7 +27,7 @@ window.BB_SEED = {
       "origin": "China",
       "price": 12.416667,
       "weight": 0.35,
-      "description": "A fictional catalog item illustrated with a real reference photograph. Over-ear headphones for a sample listening collection.",
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
       "accent": "#dfefda",
       "tag": "Demo bestseller",
       "priceBDT": 1490,
@@ -29,9 +35,64 @@ window.BB_SEED = {
       "width": 18,
       "height": 9,
       "image": "assets/products/p001.webp",
-      "imageAlt": "Black over-ear headphones on a yellow background",
-      "material": "Generated classroom product attributes",
-      "photoIllustrative": true
+      "imageAlt": "Black / everyday reference photograph; fictional classroom product",
+      "material": "Illustrative classroom hardware styles",
+      "photoIllustrative": true,
+      "family": "headphones",
+      "variants": [
+        {
+          "id": "black-everyday",
+          "label": "Black / everyday",
+          "image": "assets/products/p001.webp",
+          "imageAlt": "Black / everyday reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "studio-wireless",
+          "label": "Black / studio wireless",
+          "image": "assets/products/extra-headphones-1.jpg",
+          "imageAlt": "Black / studio wireless reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "silver-wired",
+          "label": "Silver / warm-cushion wired",
+          "image": "assets/products/extra-headphones-2.jpg",
+          "imageAlt": "Silver / warm-cushion wired reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "standard",
+          "label": "Standard",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
     },
     {
       "id": "P002",
@@ -41,7 +102,7 @@ window.BB_SEED = {
       "origin": "China",
       "price": 20.75,
       "weight": 0.8,
-      "description": "A fictional catalog item illustrated with a real reference photograph. A compact everyday keyboard.",
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
       "accent": "#ede8de",
       "tag": "New arrival",
       "priceBDT": 2490,
@@ -49,9 +110,70 @@ window.BB_SEED = {
       "width": 14,
       "height": 4,
       "image": "assets/products/p002.jpg",
-      "imageAlt": "White compact keyboard on a pale desk",
-      "material": "Generated classroom product attributes",
-      "photoIllustrative": true
+      "imageAlt": "White / desk layout reference photograph; fictional classroom product",
+      "material": "Illustrative classroom hardware styles",
+      "photoIllustrative": true,
+      "family": "keyboards",
+      "variants": [
+        {
+          "id": "white-desk",
+          "label": "White / desk layout",
+          "image": "assets/products/p002.jpg",
+          "imageAlt": "White / desk layout reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "color-studio",
+          "label": "Color accents / studio layout",
+          "image": "assets/products/extra-keyboard-1.jpg",
+          "imageAlt": "Color accents / studio layout reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "black-compact",
+          "label": "Black / compact layout",
+          "image": "assets/products/extra-keyboard-2.jpg",
+          "imageAlt": "Black / compact layout reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "compact",
+          "label": "Compact layout",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "desk",
+          "label": "Desk layout",
+          "priceDeltaBDT": 120,
+          "weightMultiplier": 1.15
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
     },
     {
       "id": "P003",
@@ -61,7 +183,7 @@ window.BB_SEED = {
       "origin": "USA",
       "price": 41.583333,
       "weight": 0.45,
-      "description": "A fictional catalog item illustrated with a real reference photograph. A camera for an imaginary photography collection.",
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
       "accent": "#e4e9ef",
       "tag": "Editor's pick",
       "priceBDT": 4990,
@@ -69,19 +191,67 @@ window.BB_SEED = {
       "width": 18,
       "height": 15,
       "image": "assets/products/p003.jpg",
-      "imageAlt": "Camera with interchangeable lenses on a dark surface",
-      "material": "Generated classroom product attributes",
-      "photoIllustrative": true
+      "imageAlt": "Black / lens collection reference photograph; fictional classroom product",
+      "material": "Illustrative classroom hardware styles",
+      "photoIllustrative": true,
+      "family": "cameras",
+      "variants": [
+        {
+          "id": "black-lens",
+          "label": "Black / lens collection",
+          "image": "assets/products/p003.jpg",
+          "imageAlt": "Black / lens collection reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "silver-classic",
+          "label": "Silver / classic body",
+          "image": "assets/products/extra-camera-1.jpg",
+          "imageAlt": "Silver / classic body reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "body",
+          "label": "Standard body",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
     },
     {
       "id": "P004",
-      "name": "Weekender tote",
+      "name": "Weekender tote & bag collection",
       "brand": "North & Noon",
       "category": "Lifestyle",
       "origin": "UK",
       "price": 4.916667,
       "weight": 0.4,
-      "description": "A fictional catalog item illustrated with a real reference photograph. A roomy two-tone canvas tote.",
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
       "accent": "#f1e7d5",
       "tag": "Lightweight",
       "priceBDT": 590,
@@ -89,9 +259,83 @@ window.BB_SEED = {
       "width": 25,
       "height": 5,
       "image": "assets/products/p004.jpg",
-      "imageAlt": "Natural canvas tote with navy stripes",
-      "material": "Generated classroom product attributes",
-      "photoIllustrative": true
+      "imageAlt": "Navy stripe / canvas carryall reference photograph; fictional classroom product",
+      "material": "Illustrative textile / structured bag styles",
+      "photoIllustrative": true,
+      "family": "handbags",
+      "variants": [
+        {
+          "id": "navy-canvas",
+          "label": "Navy stripe / canvas carryall",
+          "image": "assets/products/p004.jpg",
+          "imageAlt": "Navy stripe / canvas carryall reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "amber-woven",
+          "label": "Amber / woven structure",
+          "image": "assets/products/extra-bag-2.jpg",
+          "imageAlt": "Amber / woven structure reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "coral-structured",
+          "label": "Coral / structured handle",
+          "image": "assets/products/extra-bag-3.jpg",
+          "imageAlt": "Coral / structured handle reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "noir-quilted",
+          "label": "Noir / quilted style",
+          "image": "assets/products/extra-bag-1.jpg",
+          "imageAlt": "Noir / quilted style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "small",
+          "label": "Small",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "medium",
+          "label": "Medium",
+          "priceDeltaBDT": 70,
+          "weightMultiplier": 1.1
+        },
+        {
+          "id": "large",
+          "label": "Large",
+          "priceDeltaBDT": 140,
+          "weightMultiplier": 1.2
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
     },
     {
       "id": "P005",
@@ -101,7 +345,7 @@ window.BB_SEED = {
       "origin": "China",
       "price": 10.75,
       "weight": 0.65,
-      "description": "A fictional catalog item illustrated with a real reference photograph. A navy everyday backpack.",
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
       "accent": "#e0e8dc",
       "tag": "Everyday essential",
       "priceBDT": 1290,
@@ -109,19 +353,86 @@ window.BB_SEED = {
       "width": 28,
       "height": 8,
       "image": "assets/products/p005.jpg",
-      "imageAlt": "Navy everyday backpack",
-      "material": "Generated classroom product attributes",
-      "photoIllustrative": true
+      "imageAlt": "Navy / city pack reference photograph; fictional classroom product",
+      "material": "Illustrative fabric backpack styles",
+      "photoIllustrative": true,
+      "family": "backpacks",
+      "variants": [
+        {
+          "id": "navy-city",
+          "label": "Navy / city pack",
+          "image": "assets/products/p005.jpg",
+          "imageAlt": "Navy / city pack reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "rose-everyday",
+          "label": "Rose / everyday pack",
+          "image": "assets/products/extra-backpack-1.jpg",
+          "imageAlt": "Rose / everyday pack reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "forest-trail",
+          "label": "Forest / trail pack",
+          "image": "assets/products/extra-backpack-2.jpg",
+          "imageAlt": "Forest / trail pack reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "compact",
+          "label": "Compact",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "everyday",
+          "label": "Everyday",
+          "priceDeltaBDT": 100,
+          "weightMultiplier": 1.1
+        },
+        {
+          "id": "travel",
+          "label": "Travel",
+          "priceDeltaBDT": 200,
+          "weightMultiplier": 1.25
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
     },
     {
       "id": "P006",
-      "name": "Coast canvas sneakers",
+      "name": "Coast everyday sneakers",
       "brand": "Sunday Step",
       "category": "Fashion",
       "origin": "India",
       "price": 9.916667,
       "weight": 0.9,
-      "description": "A fictional catalog item illustrated with a real reference photograph. A low-top canvas sneaker.",
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
       "accent": "#ede5dc",
       "tag": "Demo favorite",
       "priceBDT": 1190,
@@ -129,9 +440,107 @@ window.BB_SEED = {
       "width": 20,
       "height": 12,
       "image": "assets/products/p006.jpg",
-      "imageAlt": "Burgundy low-top canvas sneaker",
-      "material": "Generated classroom product attributes",
-      "photoIllustrative": true
+      "imageAlt": "Burgundy / canvas style reference photograph; fictional classroom product",
+      "material": "Illustrative canvas / textile / synthetic footwear styles",
+      "photoIllustrative": true,
+      "family": "footwear",
+      "variants": [
+        {
+          "id": "burgundy-canvas",
+          "label": "Burgundy / canvas style",
+          "image": "assets/products/p006.jpg",
+          "imageAlt": "Burgundy / canvas style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "crimson-sport",
+          "label": "Crimson / sport style",
+          "image": "assets/products/extra-shoe-1.jpg",
+          "imageAlt": "Crimson / sport style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "cream-trainer",
+          "label": "Cream-coral / trainer style",
+          "image": "assets/products/extra-shoe-2.jpg",
+          "imageAlt": "Cream-coral / trainer style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "tan-court",
+          "label": "Tan / court style",
+          "image": "assets/products/extra-shoe-3.jpg",
+          "imageAlt": "Tan / court style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "eu-36",
+          "label": "EU 36",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "eu-37",
+          "label": "EU 37",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "eu-38",
+          "label": "EU 38",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "eu-39",
+          "label": "EU 39",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "eu-40",
+          "label": "EU 40",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "eu-41",
+          "label": "EU 41",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "eu-42",
+          "label": "EU 42",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "pair",
+      "variationType": "Style / color"
     },
     {
       "id": "P007",
@@ -141,7 +550,7 @@ window.BB_SEED = {
       "origin": "India",
       "price": 6.583333,
       "weight": 0.4,
-      "description": "A fictional catalog item illustrated with a real reference photograph. A blue cotton shirt.",
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
       "accent": "#dae5d7",
       "tag": "New arrival",
       "priceBDT": 790,
@@ -149,9 +558,82 @@ window.BB_SEED = {
       "width": 22,
       "height": 4,
       "image": "assets/products/p007.jpg",
-      "imageAlt": "Blue patterned cotton shirt on a hanger",
-      "material": "Generated classroom product attributes",
-      "photoIllustrative": true
+      "imageAlt": "Blue / patterned cotton reference photograph; fictional classroom product",
+      "material": "Illustrative cotton-style apparel",
+      "photoIllustrative": true,
+      "family": "shirts",
+      "variants": [
+        {
+          "id": "blue-pattern",
+          "label": "Blue / patterned cotton",
+          "image": "assets/products/p007.jpg",
+          "imageAlt": "Blue / patterned cotton reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "white-office",
+          "label": "White / office style",
+          "image": "assets/products/extra-shirt-1.jpg",
+          "imageAlt": "White / office style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "neutral-edit",
+          "label": "Assorted neutrals / folded edit",
+          "image": "assets/products/extra-shirt-2.jpg",
+          "imageAlt": "Assorted neutrals / folded edit reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "s",
+          "label": "S",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "m",
+          "label": "M",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "l",
+          "label": "L",
+          "priceDeltaBDT": 20,
+          "weightMultiplier": 1.05
+        },
+        {
+          "id": "xl",
+          "label": "XL",
+          "priceDeltaBDT": 40,
+          "weightMultiplier": 1.1
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
     },
     {
       "id": "P008",
@@ -161,7 +643,7 @@ window.BB_SEED = {
       "origin": "UK",
       "price": 3.25,
       "weight": 0.15,
-      "description": "A fictional catalog item illustrated with a real reference photograph. An everyday cap.",
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
       "accent": "#eee8d8",
       "tag": "Small parcel",
       "priceBDT": 390,
@@ -169,19 +651,67 @@ window.BB_SEED = {
       "width": 20,
       "height": 10,
       "image": "assets/products/p008.jpg",
-      "imageAlt": "White everyday cap",
-      "material": "Generated classroom product attributes",
-      "photoIllustrative": true
+      "imageAlt": "White / everyday cap reference photograph; fictional classroom product",
+      "material": "Illustrative fabric cap styles",
+      "photoIllustrative": true,
+      "family": "caps",
+      "variants": [
+        {
+          "id": "white-everyday",
+          "label": "White / everyday cap",
+          "image": "assets/products/p008.jpg",
+          "imageAlt": "White / everyday cap reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "slate-washed",
+          "label": "Slate / washed cap",
+          "image": "assets/products/extra-cap-1.jpg",
+          "imageAlt": "Slate / washed cap reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "adjustable",
+          "label": "Adjustable",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
     },
     {
       "id": "P009",
-      "name": "Botanical hair treatment",
+      "name": "Botanical care collection",
       "brand": "Petal Lab",
       "category": "Beauty",
       "origin": "USA",
       "price": 4.083333,
       "weight": 0.18,
-      "description": "A fictional catalog item illustrated with a real reference photograph. A sample hair-care treatment; no ingredient or efficacy claims.",
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
       "accent": "#e8e4f1",
       "tag": "Demo discovery",
       "priceBDT": 490,
@@ -189,19 +719,86 @@ window.BB_SEED = {
       "width": 8,
       "height": 5,
       "image": "assets/products/p009.jpg",
-      "imageAlt": "Illustrative packaged hair treatment",
-      "material": "Generated classroom product attributes",
-      "photoIllustrative": true
+      "imageAlt": "Treatment / tube and box reference photograph; fictional classroom product",
+      "material": "Illustrative cosmetic packaging; no ingredient or efficacy claims",
+      "photoIllustrative": true,
+      "family": "beauty",
+      "variants": [
+        {
+          "id": "treatment-tube",
+          "label": "Treatment / tube and box",
+          "image": "assets/products/p009.jpg",
+          "imageAlt": "Treatment / tube and box reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "white-bottles",
+          "label": "White / bottle collection",
+          "image": "assets/products/extra-beauty-3.webp",
+          "imageAlt": "White / bottle collection reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "cream-lotion",
+          "label": "Cream / body-lotion tube",
+          "image": "assets/products/extra-beauty-4.webp",
+          "imageAlt": "Cream / body-lotion tube reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "travel",
+          "label": "Travel size",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "regular",
+          "label": "Regular size",
+          "priceDeltaBDT": 80,
+          "weightMultiplier": 1.3
+        },
+        {
+          "id": "generous",
+          "label": "Generous size",
+          "priceDeltaBDT": 150,
+          "weightMultiplier": 1.6
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
     },
     {
       "id": "P010",
-      "name": "Cloud daily moisturizer",
+      "name": "Cloud skincare collection",
       "brand": "Soft Ritual",
       "category": "Beauty",
       "origin": "UK",
       "price": 5.75,
       "weight": 0.3,
-      "description": "A fictional catalog item illustrated with a real reference photograph. A sample moisturizer; no ingredient or efficacy claims.",
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
       "accent": "#f2e4df",
       "tag": "Travel size",
       "priceBDT": 690,
@@ -209,9 +806,76 @@ window.BB_SEED = {
       "width": 8,
       "height": 7,
       "image": "assets/products/p010.jpg",
-      "imageAlt": "Illustrative moisturizer bottle",
-      "material": "Generated classroom product attributes",
-      "photoIllustrative": true
+      "imageAlt": "Moisture / indigo bottle reference photograph; fictional classroom product",
+      "material": "Illustrative cosmetic packaging; no ingredient or efficacy claims",
+      "photoIllustrative": true,
+      "family": "beauty",
+      "variants": [
+        {
+          "id": "indigo-moisture",
+          "label": "Moisture / indigo bottle",
+          "image": "assets/products/p010.jpg",
+          "imageAlt": "Moisture / indigo bottle reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "indigo-duo",
+          "label": "Indigo / cleansing duo",
+          "image": "assets/products/extra-beauty-1.webp",
+          "imageAlt": "Indigo / cleansing duo reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "care-collection",
+          "label": "Indigo-white / care collection",
+          "image": "assets/products/extra-beauty-2.webp",
+          "imageAlt": "Indigo-white / care collection reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "travel",
+          "label": "Travel size",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "regular",
+          "label": "Regular size",
+          "priceDeltaBDT": 80,
+          "weightMultiplier": 1.3
+        },
+        {
+          "id": "generous",
+          "label": "Generous size",
+          "priceDeltaBDT": 150,
+          "weightMultiplier": 1.6
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
     },
     {
       "id": "P011",
@@ -221,7 +885,7 @@ window.BB_SEED = {
       "origin": "China",
       "price": 7.416667,
       "weight": 0.7,
-      "description": "A fictional catalog item illustrated with a real reference photograph. An adjustable desk lamp.",
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
       "accent": "#f0e9d9",
       "tag": "Workspace edit",
       "priceBDT": 890,
@@ -229,9 +893,63 @@ window.BB_SEED = {
       "width": 20,
       "height": 16,
       "image": "assets/products/p011.webp",
-      "imageAlt": "Gray adjustable desk lamp",
-      "material": "Generated classroom product attributes",
-      "photoIllustrative": true
+      "imageAlt": "Gray / adjustable task light reference photograph; fictional classroom product",
+      "material": "Illustrative metal task-light styles",
+      "photoIllustrative": true,
+      "family": "lamps",
+      "variants": [
+        {
+          "id": "gray-task",
+          "label": "Gray / adjustable task light",
+          "image": "assets/products/p011.webp",
+          "imageAlt": "Gray / adjustable task light reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "black-brass",
+          "label": "Black-brass / reading light",
+          "image": "assets/products/extra-home-4.webp",
+          "imageAlt": "Black-brass / reading light reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "desk",
+          "label": "Desk size",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "extended",
+          "label": "Extended size",
+          "priceDeltaBDT": 150,
+          "weightMultiplier": 1.2
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
     },
     {
       "id": "P012",
@@ -241,7 +959,7 @@ window.BB_SEED = {
       "origin": "India",
       "price": 2.416667,
       "weight": 0.45,
-      "description": "A fictional catalog item illustrated with a real reference photograph. A simple ceramic mug.",
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
       "accent": "#e7e9df",
       "tag": "Home favorite",
       "priceBDT": 290,
@@ -249,9 +967,2232 @@ window.BB_SEED = {
       "width": 14,
       "height": 14,
       "image": "assets/products/p012.webp",
-      "imageAlt": "White ceramic everyday mug",
-      "material": "Generated classroom product attributes",
-      "photoIllustrative": true
+      "imageAlt": "White / rounded mug reference photograph; fictional classroom product",
+      "material": "Illustrative ceramic cup styles",
+      "photoIllustrative": true,
+      "family": "mugs",
+      "variants": [
+        {
+          "id": "white-rounded",
+          "label": "White / rounded mug",
+          "image": "assets/products/p012.webp",
+          "imageAlt": "White / rounded mug reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "white-straight",
+          "label": "White / straight-sided mug",
+          "image": "assets/products/extra-home-1.webp",
+          "imageAlt": "White / straight-sided mug reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "cocoa-mug",
+          "label": "Cocoa / white-interior mug",
+          "image": "assets/products/extra-home-2.webp",
+          "imageAlt": "Cocoa / white-interior mug reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "sunshine-cup",
+          "label": "Sunshine-terracotta / cup style",
+          "image": "assets/products/extra-home-3.webp",
+          "imageAlt": "Sunshine-terracotta / cup style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "small",
+          "label": "250 ml · sample size",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "medium",
+          "label": "350 ml · sample size",
+          "priceDeltaBDT": 40,
+          "weightMultiplier": 1.1
+        },
+        {
+          "id": "large",
+          "label": "450 ml · sample size",
+          "priceDeltaBDT": 80,
+          "weightMultiplier": 1.2
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
+    },
+    {
+      "id": "P013",
+      "name": "Studio wireless headphones",
+      "brand": "Auraloop",
+      "category": "Electronics",
+      "origin": "China",
+      "price": 14.083333,
+      "weight": 0.35,
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
+      "accent": "#dfefda",
+      "tag": "Bulk collection",
+      "priceBDT": 1690,
+      "length": 20,
+      "width": 18,
+      "height": 9,
+      "image": "assets/products/extra-headphones-1.jpg",
+      "imageAlt": "Black / studio wireless reference photograph; fictional classroom product",
+      "material": "Illustrative classroom hardware styles",
+      "photoIllustrative": true,
+      "family": "headphones",
+      "variants": [
+        {
+          "id": "studio-wireless",
+          "label": "Black / studio wireless",
+          "image": "assets/products/extra-headphones-1.jpg",
+          "imageAlt": "Black / studio wireless reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "black-everyday",
+          "label": "Black / everyday",
+          "image": "assets/products/p001.webp",
+          "imageAlt": "Black / everyday reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "silver-wired",
+          "label": "Silver / warm-cushion wired",
+          "image": "assets/products/extra-headphones-2.jpg",
+          "imageAlt": "Silver / warm-cushion wired reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "standard",
+          "label": "Standard",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
+    },
+    {
+      "id": "P014",
+      "name": "Silverline listening set",
+      "brand": "Auraloop",
+      "category": "Electronics",
+      "origin": "UK",
+      "price": 10.75,
+      "weight": 0.35,
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
+      "accent": "#dfefda",
+      "tag": "Mix sample sizes",
+      "priceBDT": 1290,
+      "length": 20,
+      "width": 18,
+      "height": 9,
+      "image": "assets/products/extra-headphones-2.jpg",
+      "imageAlt": "Silver / warm-cushion wired reference photograph; fictional classroom product",
+      "material": "Illustrative classroom hardware styles",
+      "photoIllustrative": true,
+      "family": "headphones",
+      "variants": [
+        {
+          "id": "silver-wired",
+          "label": "Silver / warm-cushion wired",
+          "image": "assets/products/extra-headphones-2.jpg",
+          "imageAlt": "Silver / warm-cushion wired reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "black-everyday",
+          "label": "Black / everyday",
+          "image": "assets/products/p001.webp",
+          "imageAlt": "Black / everyday reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "studio-wireless",
+          "label": "Black / studio wireless",
+          "image": "assets/products/extra-headphones-1.jpg",
+          "imageAlt": "Black / studio wireless reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "standard",
+          "label": "Standard",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
+    },
+    {
+      "id": "P015",
+      "name": "Colorblock studio keyboard",
+      "brand": "Keyfield",
+      "category": "Electronics",
+      "origin": "China",
+      "price": 23.25,
+      "weight": 0.8,
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
+      "accent": "#ede8de",
+      "tag": "More style choices",
+      "priceBDT": 2790,
+      "length": 32,
+      "width": 14,
+      "height": 4,
+      "image": "assets/products/extra-keyboard-1.jpg",
+      "imageAlt": "Color accents / studio layout reference photograph; fictional classroom product",
+      "material": "Illustrative classroom hardware styles",
+      "photoIllustrative": true,
+      "family": "keyboards",
+      "variants": [
+        {
+          "id": "color-studio",
+          "label": "Color accents / studio layout",
+          "image": "assets/products/extra-keyboard-1.jpg",
+          "imageAlt": "Color accents / studio layout reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "white-desk",
+          "label": "White / desk layout",
+          "image": "assets/products/p002.jpg",
+          "imageAlt": "White / desk layout reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "black-compact",
+          "label": "Black / compact layout",
+          "image": "assets/products/extra-keyboard-2.jpg",
+          "imageAlt": "Black / compact layout reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "compact",
+          "label": "Compact layout",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "desk",
+          "label": "Desk layout",
+          "priceDeltaBDT": 120,
+          "weightMultiplier": 1.15
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
+    },
+    {
+      "id": "P016",
+      "name": "Midnight compact keyboard",
+      "brand": "Keyfield",
+      "category": "Electronics",
+      "origin": "China",
+      "price": 21.583333,
+      "weight": 0.8,
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
+      "accent": "#ede8de",
+      "tag": "New sample",
+      "priceBDT": 2590,
+      "length": 32,
+      "width": 14,
+      "height": 4,
+      "image": "assets/products/extra-keyboard-2.jpg",
+      "imageAlt": "Black / compact layout reference photograph; fictional classroom product",
+      "material": "Illustrative classroom hardware styles",
+      "photoIllustrative": true,
+      "family": "keyboards",
+      "variants": [
+        {
+          "id": "black-compact",
+          "label": "Black / compact layout",
+          "image": "assets/products/extra-keyboard-2.jpg",
+          "imageAlt": "Black / compact layout reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "white-desk",
+          "label": "White / desk layout",
+          "image": "assets/products/p002.jpg",
+          "imageAlt": "White / desk layout reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "color-studio",
+          "label": "Color accents / studio layout",
+          "image": "assets/products/extra-keyboard-1.jpg",
+          "imageAlt": "Color accents / studio layout reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "compact",
+          "label": "Compact layout",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "desk",
+          "label": "Desk layout",
+          "priceDeltaBDT": 120,
+          "weightMultiplier": 1.15
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
+    },
+    {
+      "id": "P017",
+      "name": "Heritage camera collection",
+      "brand": "Framewell",
+      "category": "Electronics",
+      "origin": "USA",
+      "price": 49.916667,
+      "weight": 0.45,
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
+      "accent": "#e4e9ef",
+      "tag": "Bulk collection",
+      "priceBDT": 5990,
+      "length": 22,
+      "width": 18,
+      "height": 15,
+      "image": "assets/products/extra-camera-1.jpg",
+      "imageAlt": "Silver / classic body reference photograph; fictional classroom product",
+      "material": "Illustrative classroom hardware styles",
+      "photoIllustrative": true,
+      "family": "cameras",
+      "variants": [
+        {
+          "id": "silver-classic",
+          "label": "Silver / classic body",
+          "image": "assets/products/extra-camera-1.jpg",
+          "imageAlt": "Silver / classic body reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "black-lens",
+          "label": "Black / lens collection",
+          "image": "assets/products/p003.jpg",
+          "imageAlt": "Black / lens collection reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "body",
+          "label": "Standard body",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
+    },
+    {
+      "id": "P018",
+      "name": "Amber woven handbag",
+      "brand": "North & Noon",
+      "category": "Lifestyle",
+      "origin": "China",
+      "price": 5.75,
+      "weight": 0.4,
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
+      "accent": "#f1e7d5",
+      "tag": "Mix sample sizes",
+      "priceBDT": 690,
+      "length": 32,
+      "width": 25,
+      "height": 5,
+      "image": "assets/products/extra-bag-2.jpg",
+      "imageAlt": "Amber / woven structure reference photograph; fictional classroom product",
+      "material": "Illustrative textile / structured bag styles",
+      "photoIllustrative": true,
+      "family": "handbags",
+      "variants": [
+        {
+          "id": "amber-woven",
+          "label": "Amber / woven structure",
+          "image": "assets/products/extra-bag-2.jpg",
+          "imageAlt": "Amber / woven structure reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "navy-canvas",
+          "label": "Navy stripe / canvas carryall",
+          "image": "assets/products/p004.jpg",
+          "imageAlt": "Navy stripe / canvas carryall reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "coral-structured",
+          "label": "Coral / structured handle",
+          "image": "assets/products/extra-bag-3.jpg",
+          "imageAlt": "Coral / structured handle reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "noir-quilted",
+          "label": "Noir / quilted style",
+          "image": "assets/products/extra-bag-1.jpg",
+          "imageAlt": "Noir / quilted style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "small",
+          "label": "Small",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "medium",
+          "label": "Medium",
+          "priceDeltaBDT": 70,
+          "weightMultiplier": 1.1
+        },
+        {
+          "id": "large",
+          "label": "Large",
+          "priceDeltaBDT": 140,
+          "weightMultiplier": 1.2
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
+    },
+    {
+      "id": "P019",
+      "name": "Coral structured handbag",
+      "brand": "North & Noon",
+      "category": "Lifestyle",
+      "origin": "China",
+      "price": 6.166667,
+      "weight": 0.4,
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
+      "accent": "#f1e7d5",
+      "tag": "More style choices",
+      "priceBDT": 740,
+      "length": 32,
+      "width": 25,
+      "height": 5,
+      "image": "assets/products/extra-bag-3.jpg",
+      "imageAlt": "Coral / structured handle reference photograph; fictional classroom product",
+      "material": "Illustrative textile / structured bag styles",
+      "photoIllustrative": true,
+      "family": "handbags",
+      "variants": [
+        {
+          "id": "coral-structured",
+          "label": "Coral / structured handle",
+          "image": "assets/products/extra-bag-3.jpg",
+          "imageAlt": "Coral / structured handle reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "navy-canvas",
+          "label": "Navy stripe / canvas carryall",
+          "image": "assets/products/p004.jpg",
+          "imageAlt": "Navy stripe / canvas carryall reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "amber-woven",
+          "label": "Amber / woven structure",
+          "image": "assets/products/extra-bag-2.jpg",
+          "imageAlt": "Amber / woven structure reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "noir-quilted",
+          "label": "Noir / quilted style",
+          "image": "assets/products/extra-bag-1.jpg",
+          "imageAlt": "Noir / quilted style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "small",
+          "label": "Small",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "medium",
+          "label": "Medium",
+          "priceDeltaBDT": 70,
+          "weightMultiplier": 1.1
+        },
+        {
+          "id": "large",
+          "label": "Large",
+          "priceDeltaBDT": 140,
+          "weightMultiplier": 1.2
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
+    },
+    {
+      "id": "P020",
+      "name": "Noir quilted bag collection",
+      "brand": "North & Noon",
+      "category": "Lifestyle",
+      "origin": "UK",
+      "price": 6.583333,
+      "weight": 0.4,
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
+      "accent": "#f1e7d5",
+      "tag": "New sample",
+      "priceBDT": 790,
+      "length": 32,
+      "width": 25,
+      "height": 5,
+      "image": "assets/products/extra-bag-1.jpg",
+      "imageAlt": "Noir / quilted style reference photograph; fictional classroom product",
+      "material": "Illustrative textile / structured bag styles",
+      "photoIllustrative": true,
+      "family": "handbags",
+      "variants": [
+        {
+          "id": "noir-quilted",
+          "label": "Noir / quilted style",
+          "image": "assets/products/extra-bag-1.jpg",
+          "imageAlt": "Noir / quilted style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "navy-canvas",
+          "label": "Navy stripe / canvas carryall",
+          "image": "assets/products/p004.jpg",
+          "imageAlt": "Navy stripe / canvas carryall reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "amber-woven",
+          "label": "Amber / woven structure",
+          "image": "assets/products/extra-bag-2.jpg",
+          "imageAlt": "Amber / woven structure reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "coral-structured",
+          "label": "Coral / structured handle",
+          "image": "assets/products/extra-bag-3.jpg",
+          "imageAlt": "Coral / structured handle reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "small",
+          "label": "Small",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "medium",
+          "label": "Medium",
+          "priceDeltaBDT": 70,
+          "weightMultiplier": 1.1
+        },
+        {
+          "id": "large",
+          "label": "Large",
+          "priceDeltaBDT": 140,
+          "weightMultiplier": 1.2
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
+    },
+    {
+      "id": "P021",
+      "name": "Rose everyday backpack",
+      "brand": "Trailform",
+      "category": "Lifestyle",
+      "origin": "China",
+      "price": 9.083333,
+      "weight": 0.65,
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
+      "accent": "#e0e8dc",
+      "tag": "Bulk collection",
+      "priceBDT": 1090,
+      "length": 38,
+      "width": 28,
+      "height": 8,
+      "image": "assets/products/extra-backpack-1.jpg",
+      "imageAlt": "Rose / everyday pack reference photograph; fictional classroom product",
+      "material": "Illustrative fabric backpack styles",
+      "photoIllustrative": true,
+      "family": "backpacks",
+      "variants": [
+        {
+          "id": "rose-everyday",
+          "label": "Rose / everyday pack",
+          "image": "assets/products/extra-backpack-1.jpg",
+          "imageAlt": "Rose / everyday pack reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "navy-city",
+          "label": "Navy / city pack",
+          "image": "assets/products/p005.jpg",
+          "imageAlt": "Navy / city pack reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "forest-trail",
+          "label": "Forest / trail pack",
+          "image": "assets/products/extra-backpack-2.jpg",
+          "imageAlt": "Forest / trail pack reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "compact",
+          "label": "Compact",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "everyday",
+          "label": "Everyday",
+          "priceDeltaBDT": 100,
+          "weightMultiplier": 1.1
+        },
+        {
+          "id": "travel",
+          "label": "Travel",
+          "priceDeltaBDT": 200,
+          "weightMultiplier": 1.25
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
+    },
+    {
+      "id": "P022",
+      "name": "Summit trail backpack",
+      "brand": "Trailform",
+      "category": "Lifestyle",
+      "origin": "China",
+      "price": 14.083333,
+      "weight": 0.65,
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
+      "accent": "#e0e8dc",
+      "tag": "Mix sample sizes",
+      "priceBDT": 1690,
+      "length": 38,
+      "width": 28,
+      "height": 8,
+      "image": "assets/products/extra-backpack-2.jpg",
+      "imageAlt": "Forest / trail pack reference photograph; fictional classroom product",
+      "material": "Illustrative fabric backpack styles",
+      "photoIllustrative": true,
+      "family": "backpacks",
+      "variants": [
+        {
+          "id": "forest-trail",
+          "label": "Forest / trail pack",
+          "image": "assets/products/extra-backpack-2.jpg",
+          "imageAlt": "Forest / trail pack reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "navy-city",
+          "label": "Navy / city pack",
+          "image": "assets/products/p005.jpg",
+          "imageAlt": "Navy / city pack reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "rose-everyday",
+          "label": "Rose / everyday pack",
+          "image": "assets/products/extra-backpack-1.jpg",
+          "imageAlt": "Rose / everyday pack reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "compact",
+          "label": "Compact",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "everyday",
+          "label": "Everyday",
+          "priceDeltaBDT": 100,
+          "weightMultiplier": 1.1
+        },
+        {
+          "id": "travel",
+          "label": "Travel",
+          "priceDeltaBDT": 200,
+          "weightMultiplier": 1.25
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
+    },
+    {
+      "id": "P023",
+      "name": "Market canvas carryall",
+      "brand": "North & Noon",
+      "category": "Lifestyle",
+      "origin": "India",
+      "price": 5.416667,
+      "weight": 0.4,
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
+      "accent": "#f1e7d5",
+      "tag": "More style choices",
+      "priceBDT": 650,
+      "length": 32,
+      "width": 25,
+      "height": 5,
+      "image": "assets/products/p004.jpg",
+      "imageAlt": "Navy stripe / canvas carryall reference photograph; fictional classroom product",
+      "material": "Illustrative textile / structured bag styles",
+      "photoIllustrative": true,
+      "family": "handbags",
+      "variants": [
+        {
+          "id": "navy-canvas",
+          "label": "Navy stripe / canvas carryall",
+          "image": "assets/products/p004.jpg",
+          "imageAlt": "Navy stripe / canvas carryall reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "amber-woven",
+          "label": "Amber / woven structure",
+          "image": "assets/products/extra-bag-2.jpg",
+          "imageAlt": "Amber / woven structure reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "coral-structured",
+          "label": "Coral / structured handle",
+          "image": "assets/products/extra-bag-3.jpg",
+          "imageAlt": "Coral / structured handle reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "noir-quilted",
+          "label": "Noir / quilted style",
+          "image": "assets/products/extra-bag-1.jpg",
+          "imageAlt": "Noir / quilted style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "small",
+          "label": "Small",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "medium",
+          "label": "Medium",
+          "priceDeltaBDT": 70,
+          "weightMultiplier": 1.1
+        },
+        {
+          "id": "large",
+          "label": "Large",
+          "priceDeltaBDT": 140,
+          "weightMultiplier": 1.2
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
+    },
+    {
+      "id": "P024",
+      "name": "Crimson sport sneakers",
+      "brand": "Sunday Step",
+      "category": "Fashion",
+      "origin": "China",
+      "price": 14.916667,
+      "weight": 0.9,
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
+      "accent": "#ede5dc",
+      "tag": "New sample",
+      "priceBDT": 1790,
+      "length": 31,
+      "width": 20,
+      "height": 12,
+      "image": "assets/products/extra-shoe-1.jpg",
+      "imageAlt": "Crimson / sport style reference photograph; fictional classroom product",
+      "material": "Illustrative canvas / textile / synthetic footwear styles",
+      "photoIllustrative": true,
+      "family": "footwear",
+      "variants": [
+        {
+          "id": "crimson-sport",
+          "label": "Crimson / sport style",
+          "image": "assets/products/extra-shoe-1.jpg",
+          "imageAlt": "Crimson / sport style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "burgundy-canvas",
+          "label": "Burgundy / canvas style",
+          "image": "assets/products/p006.jpg",
+          "imageAlt": "Burgundy / canvas style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "cream-trainer",
+          "label": "Cream-coral / trainer style",
+          "image": "assets/products/extra-shoe-2.jpg",
+          "imageAlt": "Cream-coral / trainer style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "tan-court",
+          "label": "Tan / court style",
+          "image": "assets/products/extra-shoe-3.jpg",
+          "imageAlt": "Tan / court style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "eu-36",
+          "label": "EU 36",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "eu-37",
+          "label": "EU 37",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "eu-38",
+          "label": "EU 38",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "eu-39",
+          "label": "EU 39",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "eu-40",
+          "label": "EU 40",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "eu-41",
+          "label": "EU 41",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "eu-42",
+          "label": "EU 42",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "pair",
+      "variationType": "Style / color"
+    },
+    {
+      "id": "P025",
+      "name": "Coral everyday trainers",
+      "brand": "Sunday Step",
+      "category": "Fashion",
+      "origin": "China",
+      "price": 13.25,
+      "weight": 0.9,
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
+      "accent": "#ede5dc",
+      "tag": "Bulk collection",
+      "priceBDT": 1590,
+      "length": 31,
+      "width": 20,
+      "height": 12,
+      "image": "assets/products/extra-shoe-2.jpg",
+      "imageAlt": "Cream-coral / trainer style reference photograph; fictional classroom product",
+      "material": "Illustrative canvas / textile / synthetic footwear styles",
+      "photoIllustrative": true,
+      "family": "footwear",
+      "variants": [
+        {
+          "id": "cream-trainer",
+          "label": "Cream-coral / trainer style",
+          "image": "assets/products/extra-shoe-2.jpg",
+          "imageAlt": "Cream-coral / trainer style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "burgundy-canvas",
+          "label": "Burgundy / canvas style",
+          "image": "assets/products/p006.jpg",
+          "imageAlt": "Burgundy / canvas style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "crimson-sport",
+          "label": "Crimson / sport style",
+          "image": "assets/products/extra-shoe-1.jpg",
+          "imageAlt": "Crimson / sport style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "tan-court",
+          "label": "Tan / court style",
+          "image": "assets/products/extra-shoe-3.jpg",
+          "imageAlt": "Tan / court style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "eu-36",
+          "label": "EU 36",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "eu-37",
+          "label": "EU 37",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "eu-38",
+          "label": "EU 38",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "eu-39",
+          "label": "EU 39",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "eu-40",
+          "label": "EU 40",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "eu-41",
+          "label": "EU 41",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "eu-42",
+          "label": "EU 42",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "pair",
+      "variationType": "Style / color"
+    },
+    {
+      "id": "P026",
+      "name": "Tan court sneakers",
+      "brand": "Sunday Step",
+      "category": "Fashion",
+      "origin": "India",
+      "price": 12.416667,
+      "weight": 0.9,
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
+      "accent": "#ede5dc",
+      "tag": "Mix sample sizes",
+      "priceBDT": 1490,
+      "length": 31,
+      "width": 20,
+      "height": 12,
+      "image": "assets/products/extra-shoe-3.jpg",
+      "imageAlt": "Tan / court style reference photograph; fictional classroom product",
+      "material": "Illustrative canvas / textile / synthetic footwear styles",
+      "photoIllustrative": true,
+      "family": "footwear",
+      "variants": [
+        {
+          "id": "tan-court",
+          "label": "Tan / court style",
+          "image": "assets/products/extra-shoe-3.jpg",
+          "imageAlt": "Tan / court style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "burgundy-canvas",
+          "label": "Burgundy / canvas style",
+          "image": "assets/products/p006.jpg",
+          "imageAlt": "Burgundy / canvas style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "crimson-sport",
+          "label": "Crimson / sport style",
+          "image": "assets/products/extra-shoe-1.jpg",
+          "imageAlt": "Crimson / sport style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "cream-trainer",
+          "label": "Cream-coral / trainer style",
+          "image": "assets/products/extra-shoe-2.jpg",
+          "imageAlt": "Cream-coral / trainer style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "eu-36",
+          "label": "EU 36",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "eu-37",
+          "label": "EU 37",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "eu-38",
+          "label": "EU 38",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "eu-39",
+          "label": "EU 39",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "eu-40",
+          "label": "EU 40",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "eu-41",
+          "label": "EU 41",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "eu-42",
+          "label": "EU 42",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "pair",
+      "variationType": "Style / color"
+    },
+    {
+      "id": "P027",
+      "name": "Office cotton shirt edit",
+      "brand": "Common Thread",
+      "category": "Fashion",
+      "origin": "India",
+      "price": 7.416667,
+      "weight": 0.4,
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
+      "accent": "#dae5d7",
+      "tag": "More style choices",
+      "priceBDT": 890,
+      "length": 30,
+      "width": 22,
+      "height": 4,
+      "image": "assets/products/extra-shirt-1.jpg",
+      "imageAlt": "White / office style reference photograph; fictional classroom product",
+      "material": "Illustrative cotton-style apparel",
+      "photoIllustrative": true,
+      "family": "shirts",
+      "variants": [
+        {
+          "id": "white-office",
+          "label": "White / office style",
+          "image": "assets/products/extra-shirt-1.jpg",
+          "imageAlt": "White / office style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "blue-pattern",
+          "label": "Blue / patterned cotton",
+          "image": "assets/products/p007.jpg",
+          "imageAlt": "Blue / patterned cotton reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "neutral-edit",
+          "label": "Assorted neutrals / folded edit",
+          "image": "assets/products/extra-shirt-2.jpg",
+          "imageAlt": "Assorted neutrals / folded edit reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "s",
+          "label": "S",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "m",
+          "label": "M",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "l",
+          "label": "L",
+          "priceDeltaBDT": 20,
+          "weightMultiplier": 1.05
+        },
+        {
+          "id": "xl",
+          "label": "XL",
+          "priceDeltaBDT": 40,
+          "weightMultiplier": 1.1
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
+    },
+    {
+      "id": "P028",
+      "name": "Slate washed cap",
+      "brand": "Fieldday",
+      "category": "Fashion",
+      "origin": "UK",
+      "price": 3.75,
+      "weight": 0.15,
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
+      "accent": "#eee8d8",
+      "tag": "New sample",
+      "priceBDT": 450,
+      "length": 24,
+      "width": 20,
+      "height": 10,
+      "image": "assets/products/extra-cap-1.jpg",
+      "imageAlt": "Slate / washed cap reference photograph; fictional classroom product",
+      "material": "Illustrative fabric cap styles",
+      "photoIllustrative": true,
+      "family": "caps",
+      "variants": [
+        {
+          "id": "slate-washed",
+          "label": "Slate / washed cap",
+          "image": "assets/products/extra-cap-1.jpg",
+          "imageAlt": "Slate / washed cap reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "white-everyday",
+          "label": "White / everyday cap",
+          "image": "assets/products/p008.jpg",
+          "imageAlt": "White / everyday cap reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "adjustable",
+          "label": "Adjustable",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
+    },
+    {
+      "id": "P029",
+      "name": "White bottle care collection",
+      "brand": "Soft Ritual",
+      "category": "Beauty",
+      "origin": "China",
+      "price": 4.916667,
+      "weight": 0.18,
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
+      "accent": "#e8e4f1",
+      "tag": "Bulk collection",
+      "priceBDT": 590,
+      "length": 18,
+      "width": 8,
+      "height": 5,
+      "image": "assets/products/extra-beauty-3.webp",
+      "imageAlt": "White / bottle collection reference photograph; fictional classroom product",
+      "material": "Illustrative cosmetic packaging; no ingredient or efficacy claims",
+      "photoIllustrative": true,
+      "family": "beauty",
+      "variants": [
+        {
+          "id": "white-bottles",
+          "label": "White / bottle collection",
+          "image": "assets/products/extra-beauty-3.webp",
+          "imageAlt": "White / bottle collection reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "care-collection",
+          "label": "Indigo-white / care collection",
+          "image": "assets/products/extra-beauty-2.webp",
+          "imageAlt": "Indigo-white / care collection reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "cream-lotion",
+          "label": "Cream / body-lotion tube",
+          "image": "assets/products/extra-beauty-4.webp",
+          "imageAlt": "Cream / body-lotion tube reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "travel",
+          "label": "Travel size",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "regular",
+          "label": "Regular size",
+          "priceDeltaBDT": 80,
+          "weightMultiplier": 1.3
+        },
+        {
+          "id": "generous",
+          "label": "Generous size",
+          "priceDeltaBDT": 150,
+          "weightMultiplier": 1.6
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
+    },
+    {
+      "id": "P030",
+      "name": "Indigo daily care duo",
+      "brand": "Soft Ritual",
+      "category": "Beauty",
+      "origin": "UK",
+      "price": 6.583333,
+      "weight": 0.18,
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
+      "accent": "#e8e4f1",
+      "tag": "Mix sample sizes",
+      "priceBDT": 790,
+      "length": 18,
+      "width": 8,
+      "height": 5,
+      "image": "assets/products/extra-beauty-1.webp",
+      "imageAlt": "Indigo / cleansing duo reference photograph; fictional classroom product",
+      "material": "Illustrative cosmetic packaging; no ingredient or efficacy claims",
+      "photoIllustrative": true,
+      "family": "beauty",
+      "variants": [
+        {
+          "id": "indigo-duo",
+          "label": "Indigo / cleansing duo",
+          "image": "assets/products/extra-beauty-1.webp",
+          "imageAlt": "Indigo / cleansing duo reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "care-collection",
+          "label": "Indigo-white / care collection",
+          "image": "assets/products/extra-beauty-2.webp",
+          "imageAlt": "Indigo-white / care collection reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "indigo-moisture",
+          "label": "Moisture / indigo bottle",
+          "image": "assets/products/p010.jpg",
+          "imageAlt": "Moisture / indigo bottle reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "travel",
+          "label": "Travel size",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "regular",
+          "label": "Regular size",
+          "priceDeltaBDT": 80,
+          "weightMultiplier": 1.3
+        },
+        {
+          "id": "generous",
+          "label": "Generous size",
+          "priceDeltaBDT": 150,
+          "weightMultiplier": 1.6
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
+    },
+    {
+      "id": "P031",
+      "name": "Amber evening care edit",
+      "brand": "Petal Lab",
+      "category": "Beauty",
+      "origin": "USA",
+      "price": 5.75,
+      "weight": 0.18,
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
+      "accent": "#e8e4f1",
+      "tag": "More style choices",
+      "priceBDT": 690,
+      "length": 18,
+      "width": 8,
+      "height": 5,
+      "image": "assets/products/extra-beauty-5.webp",
+      "imageAlt": "Amber / dropper bottle reference photograph; fictional classroom product",
+      "material": "Illustrative cosmetic packaging; no ingredient or efficacy claims",
+      "photoIllustrative": true,
+      "family": "beauty",
+      "variants": [
+        {
+          "id": "amber-dropper",
+          "label": "Amber / dropper bottle",
+          "image": "assets/products/extra-beauty-5.webp",
+          "imageAlt": "Amber / dropper bottle reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "white-bottles",
+          "label": "White / bottle collection",
+          "image": "assets/products/extra-beauty-3.webp",
+          "imageAlt": "White / bottle collection reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "cream-lotion",
+          "label": "Cream / body-lotion tube",
+          "image": "assets/products/extra-beauty-4.webp",
+          "imageAlt": "Cream / body-lotion tube reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "travel",
+          "label": "Travel size",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "regular",
+          "label": "Regular size",
+          "priceDeltaBDT": 80,
+          "weightMultiplier": 1.3
+        },
+        {
+          "id": "generous",
+          "label": "Generous size",
+          "priceDeltaBDT": 150,
+          "weightMultiplier": 1.6
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
+    },
+    {
+      "id": "P032",
+      "name": "Cream body-care collection",
+      "brand": "Petal Lab",
+      "category": "Beauty",
+      "origin": "India",
+      "price": 4.083333,
+      "weight": 0.18,
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
+      "accent": "#e8e4f1",
+      "tag": "New sample",
+      "priceBDT": 490,
+      "length": 18,
+      "width": 8,
+      "height": 5,
+      "image": "assets/products/extra-beauty-4.webp",
+      "imageAlt": "Cream / body-lotion tube reference photograph; fictional classroom product",
+      "material": "Illustrative cosmetic packaging; no ingredient or efficacy claims",
+      "photoIllustrative": true,
+      "family": "beauty",
+      "variants": [
+        {
+          "id": "cream-lotion",
+          "label": "Cream / body-lotion tube",
+          "image": "assets/products/extra-beauty-4.webp",
+          "imageAlt": "Cream / body-lotion tube reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "treatment-tube",
+          "label": "Treatment / tube and box",
+          "image": "assets/products/p009.jpg",
+          "imageAlt": "Treatment / tube and box reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "amber-dropper",
+          "label": "Amber / dropper bottle",
+          "image": "assets/products/extra-beauty-5.webp",
+          "imageAlt": "Amber / dropper bottle reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "travel",
+          "label": "Travel size",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "regular",
+          "label": "Regular size",
+          "priceDeltaBDT": 80,
+          "weightMultiplier": 1.3
+        },
+        {
+          "id": "generous",
+          "label": "Generous size",
+          "priceDeltaBDT": 150,
+          "weightMultiplier": 1.6
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
+    },
+    {
+      "id": "P033",
+      "name": "Studio ceramic mug",
+      "brand": "Clay & Co.",
+      "category": "Home",
+      "origin": "China",
+      "price": 2.916667,
+      "weight": 0.45,
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
+      "accent": "#e7e9df",
+      "tag": "Bulk collection",
+      "priceBDT": 350,
+      "length": 15,
+      "width": 14,
+      "height": 14,
+      "image": "assets/products/extra-home-1.webp",
+      "imageAlt": "White / straight-sided mug reference photograph; fictional classroom product",
+      "material": "Illustrative ceramic cup styles",
+      "photoIllustrative": true,
+      "family": "mugs",
+      "variants": [
+        {
+          "id": "white-straight",
+          "label": "White / straight-sided mug",
+          "image": "assets/products/extra-home-1.webp",
+          "imageAlt": "White / straight-sided mug reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "white-rounded",
+          "label": "White / rounded mug",
+          "image": "assets/products/p012.webp",
+          "imageAlt": "White / rounded mug reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "cocoa-mug",
+          "label": "Cocoa / white-interior mug",
+          "image": "assets/products/extra-home-2.webp",
+          "imageAlt": "Cocoa / white-interior mug reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "sunshine-cup",
+          "label": "Sunshine-terracotta / cup style",
+          "image": "assets/products/extra-home-3.webp",
+          "imageAlt": "Sunshine-terracotta / cup style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "small",
+          "label": "250 ml · sample size",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "medium",
+          "label": "350 ml · sample size",
+          "priceDeltaBDT": 40,
+          "weightMultiplier": 1.1
+        },
+        {
+          "id": "large",
+          "label": "450 ml · sample size",
+          "priceDeltaBDT": 80,
+          "weightMultiplier": 1.2
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
+    },
+    {
+      "id": "P034",
+      "name": "Cocoa everyday mug",
+      "brand": "Clay & Co.",
+      "category": "Home",
+      "origin": "India",
+      "price": 3.25,
+      "weight": 0.45,
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
+      "accent": "#e7e9df",
+      "tag": "Mix sample sizes",
+      "priceBDT": 390,
+      "length": 15,
+      "width": 14,
+      "height": 14,
+      "image": "assets/products/extra-home-2.webp",
+      "imageAlt": "Cocoa / white-interior mug reference photograph; fictional classroom product",
+      "material": "Illustrative ceramic cup styles",
+      "photoIllustrative": true,
+      "family": "mugs",
+      "variants": [
+        {
+          "id": "cocoa-mug",
+          "label": "Cocoa / white-interior mug",
+          "image": "assets/products/extra-home-2.webp",
+          "imageAlt": "Cocoa / white-interior mug reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "white-rounded",
+          "label": "White / rounded mug",
+          "image": "assets/products/p012.webp",
+          "imageAlt": "White / rounded mug reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "white-straight",
+          "label": "White / straight-sided mug",
+          "image": "assets/products/extra-home-1.webp",
+          "imageAlt": "White / straight-sided mug reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "sunshine-cup",
+          "label": "Sunshine-terracotta / cup style",
+          "image": "assets/products/extra-home-3.webp",
+          "imageAlt": "Sunshine-terracotta / cup style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "small",
+          "label": "250 ml · sample size",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "medium",
+          "label": "350 ml · sample size",
+          "priceDeltaBDT": 40,
+          "weightMultiplier": 1.1
+        },
+        {
+          "id": "large",
+          "label": "450 ml · sample size",
+          "priceDeltaBDT": 80,
+          "weightMultiplier": 1.2
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
+    },
+    {
+      "id": "P035",
+      "name": "Black-brass task lamp",
+      "brand": "Luma House",
+      "category": "Home",
+      "origin": "China",
+      "price": 9.916667,
+      "weight": 0.7,
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
+      "accent": "#f0e9d9",
+      "tag": "More style choices",
+      "priceBDT": 1190,
+      "length": 35,
+      "width": 20,
+      "height": 16,
+      "image": "assets/products/extra-home-4.webp",
+      "imageAlt": "Black-brass / reading light reference photograph; fictional classroom product",
+      "material": "Illustrative metal task-light styles",
+      "photoIllustrative": true,
+      "family": "lamps",
+      "variants": [
+        {
+          "id": "black-brass",
+          "label": "Black-brass / reading light",
+          "image": "assets/products/extra-home-4.webp",
+          "imageAlt": "Black-brass / reading light reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "gray-task",
+          "label": "Gray / adjustable task light",
+          "image": "assets/products/p011.webp",
+          "imageAlt": "Gray / adjustable task light reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "desk",
+          "label": "Desk size",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "extended",
+          "label": "Extended size",
+          "priceDeltaBDT": 150,
+          "weightMultiplier": 1.2
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
+    },
+    {
+      "id": "P036",
+      "name": "Sunshine ceramic cup edit",
+      "brand": "Clay & Co.",
+      "category": "Home",
+      "origin": "China",
+      "price": 2.75,
+      "weight": 0.45,
+      "description": "A generated classroom product family with photographic style references. Select a style and mix sample sizes in one wholesale request. Photos illustrate choices and do not establish a real SKU, manufacturer, material specification, stock, or brand affiliation.",
+      "accent": "#e7e9df",
+      "tag": "New sample",
+      "priceBDT": 330,
+      "length": 15,
+      "width": 14,
+      "height": 14,
+      "image": "assets/products/extra-home-3.webp",
+      "imageAlt": "Sunshine-terracotta / cup style reference photograph; fictional classroom product",
+      "material": "Illustrative ceramic cup styles",
+      "photoIllustrative": true,
+      "family": "mugs",
+      "variants": [
+        {
+          "id": "sunshine-cup",
+          "label": "Sunshine-terracotta / cup style",
+          "image": "assets/products/extra-home-3.webp",
+          "imageAlt": "Sunshine-terracotta / cup style reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "white-rounded",
+          "label": "White / rounded mug",
+          "image": "assets/products/p012.webp",
+          "imageAlt": "White / rounded mug reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "white-straight",
+          "label": "White / straight-sided mug",
+          "image": "assets/products/extra-home-1.webp",
+          "imageAlt": "White / straight-sided mug reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        },
+        {
+          "id": "cocoa-mug",
+          "label": "Cocoa / white-interior mug",
+          "image": "assets/products/extra-home-2.webp",
+          "imageAlt": "Cocoa / white-interior mug reference photograph; fictional classroom product",
+          "priceDeltaBDT": 0
+        }
+      ],
+      "sizes": [
+        {
+          "id": "small",
+          "label": "250 ml · sample size",
+          "priceDeltaBDT": 0,
+          "weightMultiplier": 1
+        },
+        {
+          "id": "medium",
+          "label": "350 ml · sample size",
+          "priceDeltaBDT": 40,
+          "weightMultiplier": 1.1
+        },
+        {
+          "id": "large",
+          "label": "450 ml · sample size",
+          "priceDeltaBDT": 80,
+          "weightMultiplier": 1.2
+        }
+      ],
+      "bulkTiers": [
+        {
+          "min": 1,
+          "discount": 0
+        },
+        {
+          "min": 10,
+          "discount": 5
+        },
+        {
+          "min": 50,
+          "discount": 10
+        },
+        {
+          "min": 100,
+          "discount": 15
+        }
+      ],
+      "stockPerSku": 500,
+      "stockIsFixture": true,
+      "minOrderQuantity": 1,
+      "unit": "piece",
+      "variationType": "Style / color"
     }
   ],
   "orders": [

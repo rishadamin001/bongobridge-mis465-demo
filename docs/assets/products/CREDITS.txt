@@ -35,3 +35,67 @@ Adaptations: resized and JPEG compressed; fitted/cropped in the page.
 
 Headphone, tote, lamp, mug and tea originals were reused from the user's
 rishadamin001/payment-gateway project and retain their upstream image credits.
+
+BongoBridge v3 catalog additions — 25 additional illustrative photos
+All generated product-family style choices are teaching fixtures. Different photos
+may represent related style/model options rather than the identical manufactured SKU.
+No genuine brand, origin, dimensions, cosmetic formulation, certification, availability
+or seller relationship is asserted. Visible manufacturer marks are incidental.
+
+extra-backpack-1.jpg: https://images.unsplash.com/photo-1622560480605-d83c853bc5c3
+  Rose / everyday pack reference photograph; fictional classroom product. Unsplash License.
+extra-backpack-2.jpg: https://images.unsplash.com/photo-1622260614153-03223fb72052
+  Forest / trail pack reference photograph; fictional classroom product. Unsplash License.
+extra-bag-1.jpg: https://images.unsplash.com/photo-1548036328-c9fa89d128fa
+  Noir / quilted style reference photograph; fictional classroom product. Unsplash License.
+extra-bag-2.jpg: https://images.unsplash.com/photo-1590874103328-eac38a683ce7
+  Amber / woven structure reference photograph; fictional classroom product. Unsplash License.
+extra-bag-3.jpg: https://images.unsplash.com/photo-1584917865442-de89df76afd3
+  Coral / structured handle reference photograph; fictional classroom product. Unsplash License.
+extra-camera-1.jpg: https://images.unsplash.com/photo-1510127034890-ba27508e9f1c
+  Silver / classic body reference photograph; fictional classroom product. Unsplash License.
+extra-cap-1.jpg: https://images.unsplash.com/photo-1521369909029-2afed882baee
+  Slate / washed cap reference photograph; fictional classroom product. Unsplash License.
+extra-headphones-1.jpg: https://images.unsplash.com/photo-1546435770-a3e426bf472b
+  Black / studio wireless reference photograph; fictional classroom product. Unsplash License.
+extra-headphones-2.jpg: https://images.unsplash.com/photo-1484704849700-f032a568e944
+  Silver / warm-cushion wired reference photograph; fictional classroom product. Unsplash License.
+extra-keyboard-1.jpg: https://images.unsplash.com/photo-1595225476474-87563907a212
+  Color accents / studio layout reference photograph; fictional classroom product. Unsplash License.
+extra-keyboard-2.jpg: https://images.unsplash.com/photo-1618384887929-16ec33fab9ef
+  Black / compact layout reference photograph; fictional classroom product. Unsplash License.
+extra-shirt-1.jpg: https://images.unsplash.com/photo-1598033129183-c4f50c736f10
+  White / office style reference photograph; fictional classroom product. Unsplash License.
+extra-shirt-2.jpg: https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf
+  Assorted neutrals / folded edit reference photograph; fictional classroom product. Unsplash License.
+extra-shoe-1.jpg: https://images.unsplash.com/photo-1542291026-7eec264c27ff
+  Crimson / sport style reference photograph; fictional classroom product. Unsplash License.
+extra-shoe-2.jpg: https://images.unsplash.com/photo-1600185365483-26d7a4cc7519
+  Cream-coral / trainer style reference photograph; fictional classroom product. Unsplash License.
+extra-shoe-3.jpg: https://images.unsplash.com/photo-1549298916-b41d501d3772
+  Tan / court style reference photograph; fictional classroom product. Unsplash License.
+
+Additional care and home photography:
+extra-beauty-1.webp: https://images.unsplash.com/photo-1556228578-0d85b1a4d571
+  Indigo cleanser and moisturizer duo. Unsplash reference photo. Unsplash License.
+extra-beauty-2.webp: https://images.unsplash.com/photo-1571781926291-c477ebfd024b
+  Indigo and white skincare collection. Unsplash reference photo. Unsplash License.
+extra-beauty-3.webp: https://www.pexels.com/photo/containers-of-cosmetics-17150052/
+  White bottle skincare collection. Avernak Skincare / Pexels. Pexels License.
+extra-beauty-4.webp: https://images.unsplash.com/photo-1620916566398-39f1143ab7be
+  Cream body lotion tube. Unsplash reference photo. Unsplash License.
+extra-beauty-5.webp: https://www.pexels.com/photo/glass-bottle-with-pipette-4857810/
+  Amber dropper bottle on marble. Vie Studio / Pexels. Pexels License.
+extra-home-1.webp: https://www.pexels.com/photo/white-mug-on-white-surface-6312107/
+  White straight-sided ceramic mug. KATRIN BOLOVTSOVA / Pexels. Pexels License.
+extra-home-2.webp: https://www.pexels.com/photo/minimalist-brown-mug-on-wooden-surface-31046284/
+  Brown ceramic mug with white interior. Jin He / Pexels. Pexels License.
+extra-home-3.webp: https://www.pexels.com/photo/pair-of-ceramic-mugs-arranged-on-white-table-7214824/
+  Yellow and terracotta ceramic cup duo. Hanna Pad / Pexels. Pexels License.
+extra-home-4.webp: https://www.pexels.com/photo/black-metal-desk-lamp-1112598/
+  Black and brass adjustable desk lamp. Pexels free reference photo. Pexels License.
+
+Pexels license: https://www.pexels.com/license/
+Unsplash license: https://unsplash.com/license
+Files resized and compressed; the page may fit/crop them. No image-provider calls
+are made at runtime. Existing CC BY 2.0 tote attribution above remains applicable.

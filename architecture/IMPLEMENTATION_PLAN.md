@@ -33,6 +33,8 @@ flowchart TB
 | `src/app.js` | Storefront routing, catalog/search, bag, checkout review, tracking, customer demo dashboard. |
 | `src/engine.js` | Existing shopping state and order persistence, with the pricing module as its calculator. |
 | `src/modules/pricing.js` | Pure import and export quotes, parcel weights, fixed FX fixtures, minor-unit export accounting. |
+| `src/modules/commerce.js` | Product/style/size identity, mixed-SKU bulk tiers, shared local delivery, recommendations and atomic bag changes. |
+| `src/modules/product-page.js`, `src/wholesale.css` | Photographic variation gallery, quantity table, tier comparison, live order summary and related-product sidebar. |
 | `src/modules/payments.js` | Adapted PayBD method/verification/processing/result UI and guarded payment-state transitions. |
 | `src/modules/operations-domain.js` | Generated makers/listings, command guards, export state machine, consolidation, journal posting, event log. |
 | `src/modules/workspace.js` | Openly selectable classroom role workspaces and draft document presentation. |
@@ -68,6 +70,8 @@ The previous `dist/` source layout is replaced by `src/`; `docs/` remains the fr
 ## End-to-end flows and acceptance criteria
 
 ### Shopper import flow
+
+The v3 wholesale extension includes 36 product families, 115 photographic style choices and 368 style/size combinations. Import quantities aggregate by product across all styles/sizes, up to 500 units. Sample item discounts are 5% at 10 units, 10% at 50, and 15% at 100. Different product IDs do not share a tier; local delivery is counted once per product. Discounted unit prices and each SKU advance round to whole taka; checkout sums those same snapshots. The separate maker-export quantity limit remains 20.
 
 1. Search/filter a photographic catalog. Every item has a BDT price, sample weight, and indicative combined freight/customs rate.
 2. Add an item. The clicked button confirms, the badge animates, an image moves toward the bag when motion is allowed, and a visible image/name/quantity confirmation offers a direct next step.

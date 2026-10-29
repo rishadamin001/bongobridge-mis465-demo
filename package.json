@@ -1,8 +1,8 @@
 {
   "name": "bongobridge-mis465-demo",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "private": true,
-  "description": "Zero-dependency, educational cross-border commerce simulation",
+  "description": "Zero-dependency educational wholesale, SKU pricing and cross-border commerce simulation",
   "scripts": {
     "check": "node scripts/check.mjs",
     "test": "node --test",

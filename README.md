@@ -1,61 +1,64 @@
-# BongoBridge v2 — MIS 465 course demo
+# BongoBridge v3 — MIS 465 wholesale commerce demo
 
 Live website: https://rishadamin001.github.io/bongobridge-mis465-demo/
 
-BongoBridge combines global shopping into Bangladesh with a Bangladesh-maker export workspace. It is an original, noncommercial classroom simulation inspired by end-to-end commerce sites. It is not affiliated with Baozun, SkyBuy, any photographer, product brand, retailer, bank, wallet, or carrier.
+BongoBridge combines global shopping into Bangladesh with a Bangladesh-maker export workspace. The wholesale storefront preserves the evergreen, cream, and lime theme while adding photographic style choices, quantities by size, bulk price tiers, and related-product suggestions.
 
-**All products, prices, makers, orders, shipping events, policy calculations, and transactions are generated scenarios. No real money moves. No paid service, billing method, secret, or API key is required.**
+**Educational demonstration only. Products, prices, makers, quantities, shipping events, policy calculations, and transactions are generated scenarios. No real money moves. No paid service, billing method, secret, or API key is required.**
+
+The original design is inspired by end-to-end commerce sites. BongoBridge is not affiliated with Baozun, SkyBuy, any photographer, product brand, retailer, bank, wallet, or carrier. Real reference photos illustrate fictional product families; they do not establish the same manufactured SKU or actual stock.
 
 ## What works
 
-- A recognizable photo for every catalog product, with bundled files and credits.
-- Search, categories, origin filters, sorting, bag quantity/removal, clear image/name/quantity add-to-bag confirmation, button/badge/flight animation, and reduced-motion support.
-- SkyBuy-inspired pricing presentation: BDT item price, 70% sample item advance, later balance, combined mock freight/customs, local delivery, and dimensional-weight calculation.
-- Minimal PayBD checkout adapted from your payment-gateway repository: card/bKash/Nagad/Rocket/bank choices, displayed fake code 000000, processing, paid/failed/cancelled/expired screens. No actual provider integration.
-- Sample parcel tracking and a customer demo admin view.
-- Maker, Warehouse, Broker, Finance, and Automation workspaces with generated records.
-- Export DDP teaching quotes across BDT/USD/EUR/GBP, dimensions/materials/HS fixtures, human review, warehouse measurement, consolidation, departure gates, draft documents, simulated payout journals, and event history.
+- **36 generated product families**, **115 photographic style choices**, and **368 style/size combinations** across Electronics, Lifestyle, Fashion, Beauty, and Home. Photos are locally bundled with attribution and license credits.
+- A wholesale product page with large image/gallery, style/color choices, size-by-size quantity controls, selected-combination summary, specifications, and a live shipping/payment estimate.
+- Mixed styles and sizes in one product order. A cart line is identified by product + style + size, so changing one combination does not overwrite another.
+- Per-product bulk tiers: **1–9 units: standard**, **10–49: 5% off**, **50–99: 10% off**, and **100–500: 15% off** the sample item price. Quantities aggregate across styles/sizes of the same product, including the bag; different product IDs do not share a tier.
+- The sample discounted unit price rounds to a whole taka before multiplication. Size/option surcharges are included before the percentage discount. Freight is separate; the mock local-delivery charge is counted **once per product**, even with several SKU lines.
+- Related-product suggestion boxes that prioritize the same product family and category, without invented ratings, sales counts, or customer reviews.
+- Search, category/origin filters, sorting, bag edits, clear image/name/quantity add-to-bag confirmation, button/badge/flight animation, and reduced-motion support.
+- Staged BDT pricing: 70% of discounted item value as a sample advance, later balance, combined mock freight/customs, local delivery, and actual-versus-dimensional shipping weight.
+- Minimal PayBD checkout adapted from your payment-gateway repository: card/bKash/Nagad/Rocket/bank choices, displayed fake code 000000, processing, paid/failed/cancelled/expired result screens. No actual provider is connected.
+- Sample parcel tracking, customer demo admin, and Maker/Warehouse/Broker/Finance/Automation workspaces with DDP teaching quotes, human-review gates, measured intake, consolidation, draft documents, balanced payout journals, and event history.
+
+## Quantity boundaries
+
+The import-shopping demo supports up to **500 units per product across all styles and sizes**. `stockPerSku: 500` is a generated classroom limit, not a real inventory promise. The separate maker-export workflow intentionally retains its **20-unit** scenario limit. No real MOQ, availability, manufacturing specification, certificate, or delivery commitment is asserted.
 
 ## Start here
 
-- [Thorough implementation plan](architecture/IMPLEMENTATION_PLAN.md): architecture, blueprint mapping, implemented versus deferred behavior, phased roadmap and cost guardrails.
+- [Implementation plan](architecture/IMPLEMENTATION_PLAN.md): architecture, original blueprint mapping, wholesale extension, production boundaries and phased roadmap.
 - [Classroom walkthrough](DEMO_GUIDE.md).
 - [Minimal payment-project adaptation](architecture/PAYMENT_INTEGRATION.md).
 - [Planned backend API contracts](architecture/API_CONTRACTS.md): documentation, not deployed endpoints.
 - [Photo credits](src/assets/products/CREDITS.txt).
 
-## Structure
+## Source organization
 
-src/ is the editable source; docs/ is the identical static publication output. src/modules/ separates pricing, payment simulation, export workflow, workspace presentation, and motion. database/ contains generated data and optional private-schema SQL teaching models. scripts/ has dependency-free checks and publication synchronization. tests/ covers calculations, state gates, persistence and ledger invariants.
+`src/` is editable source and `docs/` is synchronized static publication output. `src/modules/commerce.js` owns SKU resolution, bulk thresholds, cart totals, and recommendations; `product-page.js` presents the wholesale experience. Other modules separate pricing, payments, export workflow, workspaces, and motion. `database/` contains generated fixtures and optional private-schema SQL teaching models. `scripts/` provides dependency-free checks and synchronization; `tests/` verifies calculations, limits, persistence, transitions, and ledger invariants.
 
 ## Run and verify
 
-No package install is necessary. With Node.js and Python available:
+No package installation is needed. With Node.js and Python available:
 
     npm run check
     npm test
     npm run dev
 
-Open http://localhost:4173 .
+Open http://localhost:4173 . The current suite contains **24 passing automated tests**, including mixed-SKU tier aggregation, distinct-product discounts, quantity bounds, cart persistence, dimensional pricing, payment transitions, and balanced payout gates.
 
-After source changes:
+After source changes, run `npm run sync` to copy source into `docs/`, then publish the public repository's `main` branch `/docs` folder using the existing free GitHub Pages configuration. No custom domain, paid hosting, function, database, model API, or gateway account is needed. GitHub Pages educational limits apply: https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits
 
-    npm run sync
+## Simulation, privacy and production boundaries
 
-Publish the public repository's main branch /docs folder with the existing free GitHub Pages configuration. No custom domain, paid hosting, Worker, database, model API, or gateway account is needed. GitHub Pages free educational limits apply: https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits
+State is per-browser local storage, not a shared backend. Workspace roles are openly selectable personas, not secure login or tenant isolation. The displayed practice code is not an authentication control. Journals/events are editable browser data, not immutable accounting records. No current legal export eligibility, official trade document, carrier AWB, or customs filing is asserted.
 
-## What is simulated
+Only preset shoppers, sample cities and generated maker profiles are used. No names, home addresses, passwords, NIDs, cards, wallet numbers, real OTPs or financial credentials are requested. Runtime photographs are local; no analytics or external application API calls run. The host may retain its usual infrastructure access logs.
 
-Browser storage provides per-device persistence only. Workspace roles are openly selectable classroom personas, not secure authentication or production tenant isolation. Payment verification uses a displayed fake code and is not an authentication control. The event log and journals can be edited through browser storage; they are not immutable production records. No current legal export eligibility, real duty-free threshold, official document, AWB, or customs filing is asserted.
+Shopping state remains compatible with older dummy bags by assigning their missing style/size to the product's first option. Historical order amounts remain snapshots; reset restores current fixtures. Reset shopping data from the footer, and reset export scenarios separately within For makers.
 
-The blueprint's production targets (microservices, 99.95% SLA, load at 1,500 requests/second, PCI-DSS, encrypted KYC, live FX, tariff engines, carrier bookings, and actual supplier transfers) are future work requiring a separate scope, verified providers/law, server implementation and cost approval. See the plan before connecting anything live.
+Production authentication, verified live stock/pricing, real gateways/carriers, current tariff data, KYC, customs filing, live AI, load targets, and service-level guarantees require a separately approved backend scope and cost review. None is silently activated by this demo.
 
-## Dummy data and privacy
+## SQL teaching files
 
-Only preset shoppers, sample cities, and generated maker profiles are used. No names, home addresses, passwords, NIDs, cards, wallet numbers, real OTPs, or financial credentials are requested. All runtime photographs are local; there are no analytics or external application API calls. The host may retain its ordinary infrastructure access logs.
-
-Reset shopping data from the footer; reset the export scenario inside the maker workspace. The operations reset does not change the shopping bag. The previous shopping storage key is retained for existing demo sessions; old mock order amounts are historical snapshots, and reset restores the current pricing fixtures.
-
-## Database files
-
-seed.json is the catalog fixture. schema.sql and enterprise-schema.sql are optional, unexecuted PostgreSQL teaching models in private schemas with RLS enabled and no browser API grants. They do not connect the site to Supabase or any hosted database, and they do not implement complete production ledger/security controls. No Supabase resource has been created.
+`database/seed.json` is the canonical catalog fixture. `database/schema.sql` is an **unexecuted v3 PostgreSQL teaching model** generated from the same 36 products, 115 styles, size choices, bulk tiers, and six seeded orders. It uses a new private `bongobridge_demo_v3` schema to avoid colliding with earlier exercises, enables RLS, and exposes no browser API policies or grants. `enterprise-schema.sql` remains the separate export/ledger reference model. These files do not connect the website to Supabase or any hosted database, and no Supabase resource was provisioned.
